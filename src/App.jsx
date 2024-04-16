@@ -9,12 +9,9 @@ import SearchPage from './pages/SearchPage/SearchPage';
 import TopGamePage from './pages/TopGamePage/TopGamePage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
-import { useGameListQuery } from './hooks/apis/useGameList';
+import Header from './commons/Header/Header';
 
 const App = () => {
-  // NOTE test code
-  useGameListQuery();
-
   return (
     <div>
       <Routes>
