@@ -10,6 +10,7 @@ import TopGamePage from './pages/TopGamePage/TopGamePage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 import { useGameListQuery } from './hooks/apis/useGameList';
+import Header from './commons/Header/Header';
 
 const App = () => {
   // test code
@@ -17,6 +18,8 @@ const App = () => {
 
   return (
     <div>
+      <Header />
+
       <Routes>
         <Route path='/' element={<AppLayout />}>
           <Route index element={<MainPage />} />
