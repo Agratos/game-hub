@@ -12,7 +12,7 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import { useGameListQuery } from './hooks/apis/useGameList';
 
 const App = () => {
-  // test code
+  // NOTE test code
   useGameListQuery();
 
   return (
