@@ -14,8 +14,6 @@ import Header from './commons/Header/Header';
 const App = () => {
   return (
     <div>
-      <Header />
-
       <Routes>
         <Route path='/' element={<AppLayout />}>
           <Route index element={<MainPage />} />
