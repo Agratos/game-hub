@@ -7,6 +7,11 @@
 1. VSCode 에서 Ctrl + p 입력후 >settings.json 을 검색
 2. 마지막 줄에 "editor.formatOnSave": true, 추가
 
+### 깃 규칙
+
+1. branch는 page 이름 과 동일 하게 작성
+2. branch에서 push 한다음 PR 요청
+
 ### 코딩 규칙
 
 1. 변수 및 함수 명은 ( default: Camle Case, 상수: Pascal Case & Snake Case)
