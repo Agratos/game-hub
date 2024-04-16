@@ -1,0 +1,9 @@
+constants는 관리 하는 폴더
+
+ex)
+export const GAMES_GENRE = {
+    action: {
+
+    },
+    adventure
+}
