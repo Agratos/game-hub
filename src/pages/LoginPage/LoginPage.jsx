@@ -1,15 +1,7 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
 
 const LoginPage = () => {
-  return (
-    <Container>
-      <Row>
-        <Col lg={6}>{/* //TODO - Login Form */}</Col>
-        <Col lg={6}>{/* //TODO - Social Login */}</Col>
-      </Row>
-    </Container>
-  );
+  return <div>깃 협업 테스트 완료!</div>;
 };
 
 export default LoginPage;
