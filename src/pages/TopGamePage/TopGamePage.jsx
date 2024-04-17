@@ -40,7 +40,11 @@ const TopGamePage = () => {
     <Swiper centeredSlides={true} slidesPerView={'auto'} spaceBetween={20}>
       {allGameList?.map((game, index) => (
         <SwiperSlide key={index}>
-          <TopGameCard game={game} />
+          <TopGameCard
+            game={game}
+            allGameList={allGameList}
+            setAllGameList={setAllGameList}
+          />
         </SwiperSlide>
       ))}
     </Swiper>
