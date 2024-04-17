@@ -9,8 +9,6 @@ import SearchPage from './pages/SearchPage/SearchPage';
 import TopGamePage from './pages/TopGamePage/TopGamePage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
-import Header from './commons/Header/Header';
-
 const App = () => {
   return (
     <div>
