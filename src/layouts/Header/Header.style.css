@@ -32,7 +32,7 @@
   border: none;
   outline: none;
   width: 100%;
-  font-size: 18px;
+  font-size: 16px;
   color: #ebebf599;
 }
 .header-search-remove {
@@ -56,4 +56,9 @@
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+/* Header.style.css */
+.header-search-box:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.15);
 }
