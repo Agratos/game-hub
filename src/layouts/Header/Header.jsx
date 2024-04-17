@@ -26,11 +26,16 @@ const Header = () => {
       <form className='header-search-box' onSubmit={(e) => searchFormSubmit(e)}>
         <FiSearch className='header-search-icon' />
         <input
+          id='header-search-input'
           type='text'
+          placeholder='Search'
           value={searchValue}
           onChange={(e) => dispatch(searchActions.search(e.target.value))}
         />
         <button
+          style={{
+            opacity: searchValue.length !== 0 ? '0.8' : '0',
+          }}
           type='button'
           onClick={() => dispatch(searchActions.search(''))}
           className='header-search-remove'
@@ -38,7 +43,9 @@ const Header = () => {
           <TiDelete className='header-TiDelete' />
         </button>
       </form>
-      <div>로그인</div>
+      <div>
+        <Link to='/login'>로그인</Link>
+      </div>
     </div>
   );
 };
