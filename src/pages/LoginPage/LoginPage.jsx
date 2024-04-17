@@ -4,6 +4,8 @@ import { Row, Col, Container } from 'react-bootstrap';
 import LoginForm from './components/LoginForm/LoginForm';
 import SocialLogin from './components/SocialLogin/SocialLogin';
 
+import './LoginPage.style.css';
+
 const LoginPage = () => {
   return (
     <Container>
