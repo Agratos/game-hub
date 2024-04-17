@@ -1,12 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './TopGameCard.style.css';
+import { useDispatch } from 'react-redux';
+import { countScoredGames } from '../../../../store/slice/scoreGameSlice';
 
 const TopGameCard = ({ game, allGameList, setAllGameList }) => {
+  const dispatch = useDispatch();
   const handleBtn = (score) => {
+    dispatch(countScoredGames());
+    switch (score) {
+      case 'great':
+      case 'recommend':
+        break;
+      default:
+        console.log(score);
+    }
     const newAllGameList = allGameList.filter((item) => item.id !== game.id);
     setAllGameList(newAllGameList);
-    console.log(score);
   };
   return (
     <div className='top-game-card'>
@@ -24,10 +33,10 @@ const TopGameCard = ({ game, allGameList, setAllGameList }) => {
             <button onClick={() => handleBtn('recommend')}>recommend</button>
           </div>
           <div>
-            <button onClick={() => handleBtn('meh')}>meh</button>
+            <button onClick={() => handleBtn()}>meh</button>
           </div>
           <div>
-            <button onClick={() => handleBtn('skip')}>skip</button>
+            <button onClick={() => handleBtn()}>skip</button>
           </div>
         </div>
       </div>
@@ -36,9 +45,3 @@ const TopGameCard = ({ game, allGameList, setAllGameList }) => {
 };
 
 export default TopGameCard;
-
-TopGameCard.propTypes = {
-  game: PropTypes.object.isRequired,
-  allGameList: PropTypes.array.isRequired,
-  setAllGameList: PropTypes.func.isRequired,
-};

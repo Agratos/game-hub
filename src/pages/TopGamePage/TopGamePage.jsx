@@ -4,10 +4,12 @@ import axios from 'axios';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { useSelector } from 'react-redux';
 
 const TopGamePage = () => {
   const [allGameList, setAllGameList] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const scoredGames = useSelector((state) => state.score.scoredGames);
   let topGameList = [];
   const getTopGameList = async () => {
     setIsLoading(true);
@@ -37,17 +39,20 @@ const TopGamePage = () => {
     return <div>Loading...</div>;
   }
   return (
-    <Swiper centeredSlides={true} slidesPerView={'auto'} spaceBetween={20}>
-      {allGameList?.map((game, index) => (
-        <SwiperSlide key={index}>
-          <TopGameCard
-            game={game}
-            allGameList={allGameList}
-            setAllGameList={setAllGameList}
-          />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div>
+      <div>You rated {scoredGames} out of 100 Games</div>
+      <Swiper centeredSlides={true} slidesPerView={'auto'} spaceBetween={20}>
+        {allGameList?.map((game, index) => (
+          <SwiperSlide key={index}>
+            <TopGameCard
+              game={game}
+              allGameList={allGameList}
+              setAllGameList={setAllGameList}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 };
 

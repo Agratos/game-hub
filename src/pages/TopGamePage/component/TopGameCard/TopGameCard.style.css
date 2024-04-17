@@ -1,7 +1,20 @@
 .swiper-slide {
+  position: relative;
   overflow: hidden;
   width: 798px !important;
   border-radius: 10px !important;
+}
+.swiper-slide::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.swiper-slide.swiper-slide-active::after {
+  display: none;
 }
 .top-game-card {
   display: flex;
@@ -50,8 +63,6 @@
 }
 .desc-box .btn-list > div:nth-child(3) {
   border-right: 1px solid rgba(123, 123, 123, 0.3);
-}
-.desc-box .btn-list > div:nth-child(4) {
 }
 .desc-box .btn-list > div > button {
   display: block;
