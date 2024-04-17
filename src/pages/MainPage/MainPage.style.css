@@ -1,0 +1,6 @@
+/* MainPage CSS */
+
+.main-page-dropdown-area{
+    display: flex;
+    gap: 0.4rem;
+}
