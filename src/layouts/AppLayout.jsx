@@ -11,12 +11,15 @@ const AppLayout = () => {
       <main
         style={{
           display: 'flex',
+          minHeight: 'calc(100vh - 55px)',
+          height: '100%',
         }}
       >
         <aside
           style={{
             width: '300px',
-            height: '100vh',
+            minHeight: 'calc(100vh - 55px)',
+            height: '100%',
             backgroundColor: 'black',
           }}
         ></aside>
