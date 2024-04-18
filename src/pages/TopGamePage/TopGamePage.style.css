@@ -1,8 +1,15 @@
 .topGamePageWrap {
   width: calc(100% - 300px);
 }
+.topGamePageWrap h2 {
+  margin: 40px 0 20px;
+  font-family: 'AlfaSlabOne-Regular';
+  color: #fff;
+  text-align: center;
+  font-size: 50px;
+}
 .topGamePageWrap .scoredNum {
-  margin: 40px 0;
+  margin: 0 0 40px;
   font-size: 20px;
   text-align: center;
   color: #fff;
@@ -29,8 +36,12 @@
 }
 
 @media (max-width: 992px) {
+  .topGamePageWrap h2 {
+    margin: 40px 0 20px;
+    font-size: 25px;
+  }
   .topGamePageWrap .scoredNum {
-    margin: 40px 0;
+    margin: 0 0 20px;
     font-size: 16px;
   }
 }
