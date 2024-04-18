@@ -2,7 +2,7 @@ import "./MainPage.style.css"
 
 import React from 'react';
 import { useGameListPaginationQuery } from '../../hooks/apis/useGameListPagination';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container } from 'react-bootstrap';
 import ContentsCard from './components/ContentsCard/ContentsCard';
 import FilterPlatfomrsDropdown from './components/FilterPlatformsDropdown/FilterPlatfomrsDropdown';
 import OrderByDropdown from './components/OrderByDropdown/OrderByDropdown';
@@ -18,20 +18,22 @@ const MainPage = () => {
   const {data} = useGameListPaginationQuery({page:1, ordering: query.get("ordering") ? query.get("ordering") : ORDER_ARR[0]});
   console.log('여기는 메인 페이지 DATA : ',data);
 
-  return <Container>
-      <h1 className='fw-bold'>New and trending</h1>
-      <span>Based on player counts and release date</span>
+  return <Container className="mainpage-area">
+      <div>
+        <h1 className='fw-bold'>New and trending</h1>
+        <span>Based on player counts and release date</span>
+      </div>
       <div className='main-page-dropdown-area'>
         <OrderByDropdown ORDER_ARR={ORDER_ARR}/>
         <FilterPlatfomrsDropdown/>
       </div>
-      <Row>
+      <div className="mainpage-card-contents-area">
         {data?.map((item, index) => 
-        <Col xl={3} lg={4} md={6} sm={12}  key={index}>
+        <Col className="mainpage-card-contents-box"  key={index}>
           <ContentsCard item={item}/>
         </Col>
         )}
-      </Row>
+      </div>
     </Container>;
 };
 
