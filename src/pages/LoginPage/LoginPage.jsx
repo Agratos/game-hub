@@ -11,8 +11,6 @@ import './LoginPage.style.css';
 const LoginPage = () => {
   const { data } = useGameImageQuery({ id: 5679 });
 
-  console.log(data);
-
   return (
     <Container className='login-page text-white'>
       <div
