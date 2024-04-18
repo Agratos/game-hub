@@ -1,8 +1,8 @@
 import "./MainPage.style.css"
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useGameListPaginationQuery } from '../../hooks/apis/useGameListPagination';
-import { Col, Container } from 'react-bootstrap';
+import { Button, Col, Container } from 'react-bootstrap';
 import ContentsCard from './components/ContentsCard/ContentsCard';
 import FilterPlatfomrsDropdown from './components/FilterPlatformsDropdown/FilterPlatfomrsDropdown';
 import OrderByDropdown from './components/OrderByDropdown/OrderByDropdown';
@@ -13,10 +13,34 @@ const ORDER_ARR = ["rating","released","added", "created", "updated", "name", "m
 
 
 const MainPage = () => {
+  const [isDataList, setIsDataList] = useState([]);
+  const [page, setPage] = useState(1);
   const [query,] = useSearchParams();
 
-  const {data} = useGameListPaginationQuery({page:1, ordering: query.get("ordering") ? query.get("ordering") : ORDER_ARR[0]});
-  console.log('여기는 메인 페이지 DATA : ',data);
+  const {data,isSuccess,isError,error} = useGameListPaginationQuery({page:page, ordering: query.get("ordering") ? query.get("ordering") : ORDER_ARR[0]});
+  // isSuccess && console.log('여기는 메인 페이지 DATA : ',data, isSuccess);
+  if(isError){
+    console.log(error);
+  }
+
+  const handlePagination = () => {
+    setPage(page+1);
+  }
+
+  useEffect(() => {
+    // data 가 array인지 확인해야 스프레드 문법 사용 가능.
+    if(Array.isArray(data) && isSuccess){
+      if(isDataList.length !== 0){
+        setIsDataList([...isDataList, ...data]);
+      } else {
+        setIsDataList([...data]);
+      }
+    }
+  // eslint-disable-next-line
+  }, [isSuccess])
+
+
+
 
   return <Container className="mainpage-area">
       <div>
@@ -28,12 +52,13 @@ const MainPage = () => {
         <FilterPlatfomrsDropdown/>
       </div>
       <div className="mainpage-card-contents-area">
-        {data?.map((item, index) => 
-        <Col className="mainpage-card-contents-box"  key={index}>
+        {isDataList.length !== 0 && isDataList?.map((item, index) => 
+        <Col className="mainpage-card-contents-box" key={index}>
           <ContentsCard item={item}/>
         </Col>
         )}
       </div>
+      {isSuccess && <Button onClick={() => handlePagination()}>Add List</Button>}
     </Container>;
 };
 
