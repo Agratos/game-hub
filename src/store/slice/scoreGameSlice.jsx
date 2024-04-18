@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   scoredGames: 0,
+  favGames: [],
 };
 
 const scoreGameSlice = createSlice({
@@ -11,8 +12,11 @@ const scoreGameSlice = createSlice({
     countScoredGames: (state) => {
       state.scoredGames += 1;
     },
+    addFavGames: (state, action) => {
+      state.favGames = [...state.favGames, action.payload.gameId];
+    },
   },
 });
 
-export const { countScoredGames } = scoreGameSlice.actions;
+export const { countScoredGames, addFavGames } = scoreGameSlice.actions;
 export default scoreGameSlice.reducer;
