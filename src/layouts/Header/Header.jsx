@@ -99,9 +99,11 @@ const Header = () => {
       </button>
       <ul
         className='sign-box'
-        style={{
-          display: hamburgerOn === true ? 'block' : 'none',
-        }}
+        style={
+          {
+            // display: hamburgerOn === true ? 'block' : 'none',
+          }
+        }
       >
         <li>
           <Link to='/login'>
