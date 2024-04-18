@@ -1,0 +1,21 @@
+.applayout-wrapper {
+  background-color: #1d1d1f;
+}
+.applayout-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.applayout-wrapper main {
+  display: flex;
+  min-height: calc(100vh - 55px);
+  height: 100%;
+  /* background-color: green; */
+}
+
+.applayout-wrapper aside {
+  width: 300px;
+  min-height: calc(100vh - 55px);
+  height: 100%;
+  /* background-color: orange; */
+}
