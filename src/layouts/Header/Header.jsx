@@ -4,7 +4,7 @@ import { TiDelete } from 'react-icons/ti';
 
 import './Header.style.css';
 import logoImg from './img/logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { searchActions } from '../../store/slice/searchValueSlice';
 import { useGameListQuery } from '../../hooks/apis/useGameList';
@@ -14,10 +14,12 @@ const Header = () => {
   const [searchGames, setSearchGames] = useState(0);
   const searchValue = useSelector((state) => state.search.searchValue);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // search form submit 실행함수
   const searchFormSubmit = (e) => {
     e.preventDefault();
+    navigate('/search');
     dispatch(searchActions.search(''));
   };
   // 게임리스트 데이터
@@ -49,7 +51,7 @@ const Header = () => {
         <Link className='header-logo-link' to='/'>
           <img src={logoImg} alt='header-logo' />
         </Link>
-        <Link className='header-logo-link' to='/'>
+        <Link to='/top-game'>
           <button className='header-topgame-link'>
             <span>Rate top games</span>
           </button>
@@ -62,6 +64,7 @@ const Header = () => {
           onSubmit={(e) => searchFormSubmit(e)}
           style={{
             border: searchFocus ? '2px solid #0066cc' : 'none',
+            backgroundColor: searchFocus ? '#3b3b3b' : '#7676803d',
           }}
         >
           <FiSearch className='header-search-icon' />
