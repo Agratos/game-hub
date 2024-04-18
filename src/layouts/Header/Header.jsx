@@ -12,6 +12,7 @@ import { hamburgerActions } from '../../store/slice/hamburgerMenuOpen';
 
 import { useGameListQuery } from '../../hooks/apis/useGameList';
 import { RxHamburgerMenu } from 'react-icons/rx';
+import Signs from '../Signs/Signs';
 
 const Header = () => {
   const [searchFocus, setSearchFocus] = useState(false);
@@ -27,7 +28,7 @@ const Header = () => {
   const searchFormSubmit = (e) => {
     e.preventDefault();
     navigate('/search');
-    dispatch(searchActions.searchValue(''));
+    dispatch(searchActions.search(''));
   };
   // 게임리스트 데이터
   const { data } = useGameListQuery();
@@ -93,28 +94,12 @@ const Header = () => {
       </form>
       <button
         className='m-header-menubar'
-        onClick={() => dispatch(hamburgerActions.setHamburgerOn(!hamburgerOn))}
+        onClick={() => dispatch(hamburgerActions.setHamburgerOn(true))}
       >
         <RxHamburgerMenu className='m-header-hbg' />
       </button>
-      <ul
-        className='sign-box'
-        style={
-          {
-            // display: hamburgerOn === true ? 'block' : 'none',
-          }
-        }
-      >
-        <li>
-          <Link to='/login'>
-            <span className='header-sign-span'>Sign in</span>
-          </Link>
-        </li>
-        <li>
-          <Link to='/login'>
-            <span className='header-sign-span'>Sign up</span>
-          </Link>
-        </li>
+      <ul className='sign-box'>
+        <Signs />
       </ul>
     </div>
   );

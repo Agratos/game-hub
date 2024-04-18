@@ -110,6 +110,7 @@ a {
   width: 30px;
   height: 30px;
 }
+
 @media screen and (max-width: 992px) {
   .header-container {
     background-color: #1d1d1fe3;
@@ -126,13 +127,25 @@ a {
     gap: 50px;
   }
   .sign-box {
-    display: flex;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    /* display: none; */
+    display: none;
   }
   .m-header-menubar {
     display: block;
   }
+  .header-search-box {
+    width: 100%;
+    position: relative;
+  }
+  .header-container {
+    padding: 0 10px;
+    gap: 20px;
+  }
+}
+.m-sign-box {
+  position: absolute;
+  display: flex;
+  top: 100px;
+  right: 0;
+  z-index: 999;
+  color: #1d1d1fe3;
 }
