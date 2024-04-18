@@ -16,6 +16,7 @@ const DetailPage = () => {
   const bgColor = ['green', 'blue', 'yellow', 'red'];
   const { data: screenShotsData } = useGameScreenShotsQuery({ game_pk: 3328 });
   console.log('스크린샷불러온거 :', screenShotsData);
+  console.log('스크린샷불러온거 :', screenShotsData);
 
   const trailerData = [
     {
