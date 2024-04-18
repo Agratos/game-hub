@@ -1,0 +1,47 @@
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page-header {
+  z-index: 2;
+}
+
+.login-page-row {
+  height: 600px;
+}
+
+.login-page-background {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center;
+}
+.login-page-background::before {
+  content: '';
+  background: linear-gradient(to right, black, rgba(53, 53, 53, 0.237));
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.login-page-section {
+  width: 400px !important;
+}
+
+.login-page-default-width {
+  width: 300px;
+  margin: 16px auto !important;
+}

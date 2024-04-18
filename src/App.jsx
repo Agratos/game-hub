@@ -15,11 +15,11 @@ const App = () => {
       <Routes>
         <Route path='/' element={<AppLayout />}>
           <Route index element={<MainPage />} />
-          <Route path='login' element={<LoginPage />} />
           <Route path='detail/:id' element={<DetailPage />} />
           <Route path='search' element={<SearchPage />} />
           <Route path='top-game' element={<TopGamePage />} />
         </Route>
+        <Route path='/login' element={<LoginPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </div>

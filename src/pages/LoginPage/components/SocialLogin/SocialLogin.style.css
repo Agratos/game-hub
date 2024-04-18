@@ -1,0 +1,9 @@
+.login-page-section {
+  width: 500px !important;
+  margin: auto !important;
+  padding: auto !important;
+}
+
+.login-page-default-width {
+  width: 300px;
+}

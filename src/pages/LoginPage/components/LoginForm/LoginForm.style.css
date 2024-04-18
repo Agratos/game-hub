@@ -1,0 +1,20 @@
+.login-page-login-input {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: white;
+  padding: 12px;
+}
+.login-page-login-input:focus {
+  outline: none !important;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none !important;
+  color: white;
+}
+.login-page-login-input::placeholder {
+  color: rgb(165, 165, 165);
+}
+
+.login-page-login-button {
+  background-color: white;
+  color: black;
+}
