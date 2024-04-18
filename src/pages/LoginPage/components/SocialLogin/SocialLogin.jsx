@@ -1,45 +1,84 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Col, Container, Button } from 'react-bootstrap';
 import axios from 'axios';
+
+import { authenicateActions } from '../../../../store/slice/authenicateSlice';
 
 import './SocialLogin.style.css';
 
 const SocialLogin = () => {
-  const Rest_api_key = process.env.REACT_APP_KAKAO_API;
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [authKey, setAuthKey] = useState('');
+  const [token, setToken] = useState('');
+  const rest_api_key = process.env.REACT_APP_KAKAO_API;
   const redirect_uri = 'http://localhost:3000/login';
-  const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${Rest_api_key}&redirect_uri=${redirect_uri}&response_type=code`;
+  const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${rest_api_key}&redirect_uri=${redirect_uri}&response_type=code`;
 
-  const onKakaoLogin = () => {
-    window.location.href = kakaoURL;
-  };
+  useEffect(() => {
+    const code = new URL(window.location.href).searchParams.get('code');
+    if (code) {
+      setAuthKey(code);
+    }
+  }, []);
 
-  const code = new URL(window.location.href).searchParams.get('code');
+  useEffect(() => {
+    if (authKey) {
+      try {
+        axios
+          .post(
+            'https://kauth.kakao.com/oauth/token',
+            {
+              grant_type: 'authorization_code',
+              client_id: rest_api_key,
+              redirect_uri: redirect_uri,
+              code: authKey,
+            },
+            {
+              headers: {
+                'Content-Type':
+                  'application/x-www-form-urlencoded;charset=utf-8',
+                Authorization: `Bearer ${authKey}`,
+              },
+            }
+          )
+          .then((response) => {
+            setToken(response.data.access_token);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }, [authKey]);
 
-  if (code) {
-    try {
-      axios
-        .post(
-          'https://kauth.kakao.com/oauth/token',
-          {
-            grant_type: 'authorization_code',
-            client_id: '0a0752c45a293b3d876349fcbcafb637',
-            redirect_uri: redirect_uri,
-            code: code,
-          },
-          {
+  useEffect(() => {
+    if (token) {
+      try {
+        axios
+          .get('https://kapi.kakao.com/v2/user/me', {
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-              Authorization: `Bearer ${code}`,
+              Authorization: `Bearer ${token}`,
             },
-          }
-        )
-        .then((response) => {
-          console.log(response.data);
-        });
-    } catch (error) {
-      console.log(error);
+          })
+          .then((response) => {
+            const { nickname, profile_image } = response.data.properties;
+            dispatch(
+              authenicateActions.socialLogin({ nickname, profile_image })
+            );
+            navigate('/');
+          });
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }
+  }, [token]);
+
+  const onKakaoLogin = async () => {
+    window.location.href = kakaoURL;
+  };
 
   return (
     <Container className='login-page-section'>

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   id: null,
-  password: null,
+  profileImage: null,
   authenticate: false,
 };
 
@@ -13,7 +13,11 @@ const authenicateSlice = createSlice({
     login(state, action) {
       state.authenticate = true;
       state.id = action.payload.id;
-      state.password = action.payload.password;
+    },
+    socialLogin(state, action) {
+      state.authenticate = true;
+      state.id = action.payload.nickname;
+      state.profileImage = action.payload.profile_image;
     },
     logout() {
       return initialState;
