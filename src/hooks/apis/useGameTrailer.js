@@ -5,7 +5,7 @@ import api from '../../utils/api';
 // 제가 뭘 잘못한 건지 데이터를 못 가져오네요
 
 export const useGameTrailerQuery = ({ id }) => {
-  console.log(id);
+  // console.log(id);
   const getGameTrailer = ({ id }) => {
     return api.get(`/games/${id}/movies`);
   };

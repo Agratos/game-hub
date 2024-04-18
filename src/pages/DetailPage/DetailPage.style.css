@@ -37,6 +37,7 @@ p{
   flex-basis: 50%;
   height: 150px;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .detail-media-item-box:first-child {
@@ -51,6 +52,11 @@ p{
   background-size: cover;
 }
 
+
+.detail-media-item:hover{
+  transform: scale(1.1);
+  transition:  all 1s;
+}
 .detail-media-item-overay{
   width: 100%;
   height: 100%;
@@ -90,6 +96,10 @@ p{
   align-items: center;
 }
 
+.detail-rank{
+  font-size: 30px;
+}
+
 .detail-rating-bar{
   width: 100%;
   height: 50px;
@@ -97,8 +107,10 @@ p{
   text-align: center;
   border-radius: 10px;
   overflow: hidden;
+  max-width: 600px;
 }
 .detail-rating-bar div{
+ 
 }
 
 .detail-rating-count{
@@ -163,4 +175,10 @@ p{
     font-size: 30px;
     font-weight: bold;
   }
+
+  .detail-rank{
+    font-size: 20px;
+  }
+  
+
 }
