@@ -1,3 +1,7 @@
+p{
+  margin-bottom: 0;
+}
+
 .detail-bg {
   background-color: rgba(0, 0, 0, 0.826);
   color: white;
@@ -7,6 +11,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   border: solid 1px white;
+  padding: 20px;
 }
 
 .detail-section-1 {
@@ -18,13 +23,9 @@
 
 .detail-section-1-1 {
   width: 600px;
-  background-color: white;
   margin: auto;
 }
-.detail-section-1-2 {
-  flex: 2;
-  background-color: green;
-}
+
 
 .detail-media-container {
   display: flex;
@@ -32,9 +33,10 @@
 }
 
 .detail-media-item-box {
+  padding: 4px;
   flex-basis: 50%;
   height: 150px;
-  padding: 5px;
+  cursor: pointer;
 }
 
 .detail-media-item-box:first-child {
@@ -49,15 +51,95 @@
   background-size: cover;
 }
 
+.detail-media-item-overay{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  opacity: 40%;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-media-item-overay:hover{
+  background-color: white;
+  color: black;
+}
+
+.detail-section-1-2 {
+  flex: 2;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
 .datail-name {
   font-size: 50px;
   font-weight: bold;
 }
 
+.detail-rank-add{
+  display: flex;
+  gap: 8px;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.detail-rating-bar{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.detail-rating-bar div{
+}
+
+.detail-rating-count{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.detail-rating-btn{
+  border: 2px solid transparent;
+  /* outline: 2px solid white; */
+  border-radius: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-transform: capitalize;
+}
+
+.detail-rating-btn:hover{
+  border-color: gray;
+  box-sizing: content-box;
+}
+
+.detail-rating-color{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+}
+
 /* 모바일화면 */
 @media (max-width : 991px){
   
+  .detail-bg{
+    max-width: 500px;
+    padding: 0;
+    margin: auto;
+  }
   .detail-section-1{
     width: 100%;
     flex-direction: column;
@@ -65,7 +147,20 @@
 
   .detail-section-1-1 {
     width: 100%;
-    background-color: white;
     margin: auto;
+  }
+
+  .detail-media-item-box {
+    flex-basis: 33%;
+    height: 80px;
+  }
+  
+  .detail-media-item-box:first-child {
+    flex-basis: 100%;
+    height: 240px;
+  }
+  .datail-name {
+    font-size: 30px;
+    font-weight: bold;
   }
 }
