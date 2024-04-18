@@ -1,6 +1,44 @@
 /* MainPage CSS */
 
+.mainpage-area{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .main-page-dropdown-area{
     display: flex;
     gap: 0.4rem;
+}
+
+
+/* column-width가 중요 */
+.mainpage-card-contents-area{
+    column-width:300px;
+    column-gap: 15px;
+}
+
+.mainpage-card-contents-area figure{
+    position: relative;
+    border-radius: 20px;
+    display: inline-block;
+    margin:0;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);;
+}
+
+.mainpage-card-contents-area figure img{
+    width:100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+}
+
+
+
+.mainpage-card-contents-area figure figcaption{
+    border-top:1px solid rgba(0,0,0,0.2);
+    padding:10px;
+    margin-top:11px;
 }

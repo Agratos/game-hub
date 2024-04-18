@@ -4,44 +4,45 @@ import './DetailPage.style.css';
 import { useGameScreenShotsQuery } from '../../hooks/apis/useGameScreenShots';
 import { Button } from 'react-bootstrap';
 import { IoAddCircle } from 'react-icons/io5';
-// import { useGameTrailerQuery } from '../../hooks/apis/useGameTrailer';
-// import { Alert } from 'bootstrap';
-// import { useGameListQuery } from '../../hooks/apis/useGameList.js';
+import { useGameTrailerQuery } from '../../hooks/apis/useGameTrailer';
+// import { useGameDetailQuery } from '../../hooks/apis/useGameDetail.js';
 
 const DetailPage = () => {
-  // const { data: trailerData, isLoading } = useGameTrailerQuery({ id: 3498 });
-  // console.log(isLoading);
-  // console.log('트레일러데이터', trailerData);
-  //
+  // const { data: detailData } = useGameDetailQuery({ id: 3498 });
+  // console.log('디테일데이터', detailData);
+
+  const { data: trailerData } = useGameTrailerQuery({ id: 3498 });
+  console.log('트레일러데이터', trailerData?.results);
+
   const bgColor = ['green', 'blue', 'yellow', 'red'];
-  const { data: screenShotsData } = useGameScreenShotsQuery({ game_pk: 3328 });
-  console.log('스크린샷불러온거 :', screenShotsData);
+  const { data: screenShotsData } = useGameScreenShotsQuery({ game_pk: 3498 });
+  console.log('스크린샷불러온거 :', screenShotsData?.results);
 
-  const trailerData = [
-    {
-      results: {
-        data: {
-          480: 'https://steamcdn-a.akamaihd.net/steam/apps/256693661/movie480.mp4',
-          max: 'https://steamcdn-a.akamaihd.net/steam/apps/256693661/movie_max.mp4',
-        },
-      },
-    },
-  ];
+  // const trailerData = [
+  //   {
+  //     results: {
+  //       data: {
+  //         480: 'https://steamcdn-a.akamaihd.net/steam/apps/256693661/movie480.mp4',
+  //         max: 'https://steamcdn-a.akamaihd.net/steam/apps/256693661/movie_max.mp4',
+  //       },
+  //     },
+  //   },
+  // ];
 
-  console.log('트레일러영상 링크 :', trailerData[0].results.data.max);
+  // console.log('트레일러영상 링크 :', trailerData[0].results.data.max);
 
-  const fakeData = data.results[1];
-  console.log(fakeData.slug);
+  const detailData = data;
 
   return (
     <div className='detail-bg'>
       <div className='detail-section-1'>
         <div className='detail-section-1-1'>
           <div className='detail-media-container'>
-            {fakeData.short_screenshots?.map((e, index) => {
+            {screenShotsData?.results.map((e, index) => {
+              console.log(e);
               return (
                 <div className='detail-media-item-box' key={index}>
-                  {fakeData.short_screenshots.length - 1 === index ? (
+                  {screenShotsData?.results.length - 1 === index ? (
                     <div
                       className='detail-media-item '
                       style={{ backgroundImage: `url(${e.image})` }}
@@ -61,11 +62,19 @@ const DetailPage = () => {
         </div>
 
         <div className='detail-section-1-2'>
-          <div className='datail-name'>{fakeData.name}</div>
+          <div className='datail-name'>{detailData.name}</div>
           <div className='detail-rank-add'>
             <div className='detail-rank'>
-              {fakeData.rating}({fakeData.ratings_count})
-              <span> {fakeData.rating_top.toLocaleString()} RATINGS</span>
+              <div>
+                {
+                  detailData.ratings.find((e) => e.id === detailData.rating_top)
+                    .title
+                }
+              </div>
+              <div>
+                {detailData.rating}({detailData.ratings_count.toLocaleString()}{' '}
+                votes)
+              </div>
             </div>
             <div className='detail-add'>
               <Button
@@ -94,7 +103,7 @@ const DetailPage = () => {
             </div>
           </div>
           <div className='detail-rating-bar'>
-            {fakeData.ratings.map((e, index) => {
+            {detailData.ratings.map((e, index) => {
               return (
                 <div
                   style={{
@@ -107,7 +116,7 @@ const DetailPage = () => {
             })}
           </div>
           <div className='detail-rating-count'>
-            {fakeData.ratings.map((e, index) => {
+            {detailData.ratings.map((e, index) => {
               return (
                 <button className='detail-rating-btn' key={index}>
                   <div
