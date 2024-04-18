@@ -6,13 +6,20 @@ import './Header.style.css';
 import logoImg from './img/logo.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+
 import { searchActions } from '../../store/slice/searchValueSlice';
+import { hamburgerActions } from '../../store/slice/hamburgerMenuOpen';
+
 import { useGameListQuery } from '../../hooks/apis/useGameList';
+import { RxHamburgerMenu } from 'react-icons/rx';
 
 const Header = () => {
   const [searchFocus, setSearchFocus] = useState(false);
   const [searchGames, setSearchGames] = useState(0);
+
   const searchValue = useSelector((state) => state.search.searchValue);
+  const hamburgerOn = useSelector((state) => state.hamburger.hamburgerOn);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -20,13 +27,14 @@ const Header = () => {
   const searchFormSubmit = (e) => {
     e.preventDefault();
     navigate('/search');
-    dispatch(searchActions.search(''));
+    dispatch(searchActions.searchValue(''));
   };
   // 게임리스트 데이터
   const { data } = useGameListQuery();
   useEffect(() => {
     setSearchGames(data?.count);
-  }, [data]);
+    console.log('123131', hamburgerOn);
+  }, [data, hamburgerOn]);
 
   // 3의배수 , 찍어주는 함수
   function formatNumberWithCommas(number) {
@@ -47,63 +55,65 @@ const Header = () => {
 
   return (
     <div className='header-container'>
-      <div className='header-container-left'>
-        <Link className='header-logo-link' to='/'>
-          <img src={logoImg} alt='header-logo' />
-        </Link>
-        <Link to='/top-game'>
-          <button className='header-topgame-link'>
-            <span>Rate top games</span>
-          </button>
-        </Link>
-      </div>
+      <Link className='header-logo-link' to='/'>
+        <img src={logoImg} alt='header-logo' />
+      </Link>
 
-      <div className='header-container-right'>
-        <form
-          className='header-search-box'
-          onSubmit={(e) => searchFormSubmit(e)}
+      <form
+        className='header-search-box'
+        onSubmit={(e) => searchFormSubmit(e)}
+        style={{
+          border: searchFocus ? '2px solid #0066cc' : 'none',
+          backgroundColor: searchFocus ? '#3b3b3b' : '#7676803d',
+        }}
+      >
+        <FiSearch className='header-search-icon' />
+        <input
+          id='header-search-input'
+          type='text'
+          onFocus={() => setSearchFocus(true)}
+          onBlur={() => setSearchFocus(false)}
+          placeholder={`Search  ${formatNumberWithCommas(searchGames)} games`}
+          value={searchValue}
+          onChange={(e) => dispatch(searchActions.search(e.target.value))}
           style={{
-            border: searchFocus ? '2px solid #0066cc' : 'none',
-            backgroundColor: searchFocus ? '#3b3b3b' : '#7676803d',
+            color: searchValue.length !== 0 ? '#fff' : '#ebebf599',
           }}
+        />
+        <button
+          style={{
+            opacity: searchValue.length !== 0 ? '1' : '0',
+          }}
+          type='button'
+          onClick={() => dispatch(searchActions.search(''))}
+          className='header-search-remove'
         >
-          <FiSearch className='header-search-icon' />
-          <input
-            id='header-search-input'
-            type='text'
-            onFocus={() => setSearchFocus(true)}
-            onBlur={() => setSearchFocus(false)}
-            placeholder={`Search  ${formatNumberWithCommas(searchGames)} games`}
-            value={searchValue}
-            onChange={(e) => dispatch(searchActions.search(e.target.value))}
-            style={{
-              color: searchValue.length !== 0 ? '#fff' : '#ebebf599',
-            }}
-          />
-          <button
-            style={{
-              opacity: searchValue.length !== 0 ? '1' : '0',
-            }}
-            type='button'
-            onClick={() => dispatch(searchActions.search(''))}
-            className='header-search-remove'
-          >
-            <TiDelete className='header-TiDelete' />
-          </button>
-        </form>
-        <ul className='sign-box'>
-          <li>
-            <Link to='/login'>
-              <span className='header-sign-span'>Sign in</span>
-            </Link>
-          </li>
-          <li>
-            <Link to='/login'>
-              <span className='header-sign-span'>Sign up</span>
-            </Link>
-          </li>
-        </ul>
-      </div>
+          <TiDelete className='header-TiDelete' />
+        </button>
+      </form>
+      <button
+        className='m-header-menubar'
+        onClick={() => dispatch(hamburgerActions.setHamburgerOn(!hamburgerOn))}
+      >
+        <RxHamburgerMenu className='m-header-hbg' />
+      </button>
+      <ul
+        className='sign-box'
+        style={{
+          display: hamburgerOn === true ? 'block' : 'none',
+        }}
+      >
+        <li>
+          <Link to='/login'>
+            <span className='header-sign-span'>Sign in</span>
+          </Link>
+        </li>
+        <li>
+          <Link to='/login'>
+            <span className='header-sign-span'>Sign up</span>
+          </Link>
+        </li>
+      </ul>
     </div>
   );
 };

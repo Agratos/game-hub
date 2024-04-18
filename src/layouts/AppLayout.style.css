@@ -8,14 +8,24 @@
 }
 .applayout-wrapper main {
   display: flex;
-  min-height: calc(100vh - 55px);
+  min-height: calc(100vh - 64px);
   height: 100%;
-  /* background-color: green; */
 }
 
 .applayout-wrapper aside {
-  width: 300px;
+  width: 250px;
   min-height: calc(100vh - 55px);
   height: 100%;
-  /* background-color: orange; */
+  position: sticky;
+  top: 64px;
+}
+@media screen and (max-width: 992px) {
+  .applayout-wrapper aside {
+    width: 250px;
+    min-height: calc(100vh - 55px);
+    height: 100%;
+    position: sticky;
+    top: 64px;
+    display: none;
+  }
 }

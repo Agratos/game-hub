@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './Header/Header';
 import './AppLayout.style.css';
+import SideBar from './SideBar/SideBar';
 
 const AppLayout = () => {
   return (
@@ -10,7 +11,9 @@ const AppLayout = () => {
         <Header />
       </header>
       <main>
-        <aside></aside>
+        <aside>
+          <SideBar />
+        </aside>
         <Outlet />
       </main>
     </div>

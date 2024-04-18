@@ -2,17 +2,23 @@
   background-color: #1d1d1fe3;
   backdrop-filter: blur(20px) saturate(1.8);
   -webkit-backdrop-filter: blur(20px) saturate(1.8);
-  height: 55px;
+  height: 64px;
   display: flex;
   align-items: center;
   color: #fff;
-  padding: 0 20px;
+  padding: 0 30px;
   box-sizing: border-box;
   justify-content: space-between;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
+  gap: 50px;
 }
 .header-logo-link {
-  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.header-logo-link img {
+  height: 25px;
 }
 .header-search-box {
   display: flex;
@@ -20,8 +26,12 @@
   background-color: #7676803d;
   border-radius: 10px;
   box-sizing: border-box;
-  height: 34px;
+  height: 35px;
   transition: all 0.2s;
+  width: calc(100% - 450px);
+  position: absolute;
+  inset: 0;
+  margin: auto;
 }
 .header-search-icon {
   width: 25px;
@@ -61,16 +71,6 @@ a {
   text-decoration: inherit;
 }
 
-.header-container-left {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-}
-.header-container-right {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
 .sign-box {
   display: flex;
   list-style-type: none;
@@ -92,24 +92,47 @@ a {
   background-color: #747474;
 }
 
-.header-topgame-link {
-  font-size: 16px;
-  background-color: #3b3b3bb1;
-  border-radius: 6px;
-  border: none;
-  color: #fff;
-  padding: 3px 25px;
-  font-weight: 400;
-  word-spacing: 3px;
-}
-/* .header-topgame-link span::after {
-  content: '>';
-  margin-left: 8px;
-  font-weight: normal;
-} */
 .header-sign-span {
   font-size: 14px;
+
+  white-space: nowrap;
 }
 .sign-box li:hover {
   text-decoration: underline;
+}
+.m-header-menubar {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+}
+.m-header-hbg {
+  width: 30px;
+  height: 30px;
+}
+@media screen and (max-width: 992px) {
+  .header-container {
+    background-color: #1d1d1fe3;
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 0 30px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
+    gap: 50px;
+  }
+  .sign-box {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+  }
+  .m-header-menubar {
+    display: block;
+  }
 }

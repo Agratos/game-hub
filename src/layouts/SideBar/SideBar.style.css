@@ -1,0 +1,17 @@
+.slidebar-list {
+  list-style-type: none;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.slidebar-list-item {
+  font-size: 23px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all 0.2s;
+}
+.slidebar-list-item:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
