@@ -5,10 +5,13 @@ import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { useSelector } from 'react-redux';
+import './TopGamePage.style.css';
+import ShareLink from './component/ShareLink/ShareLink';
 
 const TopGamePage = () => {
   const [allGameList, setAllGameList] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [barHeight, setBarHeight] = useState(0);
   const scoredGames = useSelector((state) => state.score.scoredGames);
   let topGameList = [];
   const getTopGameList = async () => {
@@ -34,13 +37,20 @@ const TopGamePage = () => {
   useEffect(() => {
     getTopGameList();
   }, []);
+  useEffect(() => {
+    setBarHeight(0.15 * scoredGames);
+  }, [scoredGames]);
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
   return (
-    <div>
-      <div>You rated {scoredGames} out of 100 Games</div>
+    <div className='topGamePageWrap'>
+      <h2>Rate The Best Games!</h2>
+      <div className='scoredNum'>
+        <div className='progressBar' style={{ height: barHeight }}></div>
+        You rated <span>{scoredGames}</span> out of 100 Games
+      </div>
       <Swiper centeredSlides={true} slidesPerView={'auto'} spaceBetween={20}>
         {allGameList?.map((game, index) => (
           <SwiperSlide key={index}>
@@ -48,10 +58,12 @@ const TopGamePage = () => {
               game={game}
               allGameList={allGameList}
               setAllGameList={setAllGameList}
+              setBarHeight={setBarHeight}
             />
           </SwiperSlide>
         ))}
       </Swiper>
+      <ShareLink />
     </div>
   );
 };
