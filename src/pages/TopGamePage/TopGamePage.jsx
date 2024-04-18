@@ -46,6 +46,7 @@ const TopGamePage = () => {
   }
   return (
     <div className='topGamePageWrap'>
+      <h2>Rate The Best Games!</h2>
       <div className='scoredNum'>
         <div className='progressBar' style={{ height: barHeight }}></div>
         You rated <span>{scoredGames}</span> out of 100 Games
