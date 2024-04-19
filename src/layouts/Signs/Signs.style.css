@@ -1,0 +1,29 @@
+@media screen and (max-width: 992px) {
+  .sign-item {
+    color: #000;
+  }
+}
+.sign-item:hover span {
+  text-decoration: underline;
+}
+
+.sign-default-img {
+  width: 35px;
+  height: 35px;
+}
+.Sign-profile img {
+  width: 32px;
+  border-radius: 100rem;
+}
+.sign-logout-bt {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+}
+.sign-logout-bt:hover {
+  text-decoration: underline;
+}
+.header-sign-span {
+  font-size: 16px;
+}
