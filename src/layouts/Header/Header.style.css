@@ -76,20 +76,8 @@ a {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-.sign-box li {
-  padding: 0 18px;
-  position: relative;
-}
-.sign-box li:nth-child(2)::before {
-  content: '';
-  display: inline-block;
-  position: absolute;
-  inset: 0 auto 0 0;
-  margin: auto;
-  height: 13px;
-  width: 1px;
-  background-color: #747474;
+  gap: 18px;
+  align-items: center;
 }
 
 .header-sign-span {
