@@ -12,11 +12,10 @@ import { MdLaptopMac, MdComputer } from 'react-icons/md';
 
 const TopGameCard = ({ game, allGameList, setAllGameList }) => {
   const dispatch = useDispatch();
-  console.log(game);
   const handleBtn = (score) => {
     dispatch(countScoredGames());
     if (score === 'great' || score === 'recommended') {
-      dispatch(addFavGames({ gameId: game.id }));
+      dispatch(addFavGames({ game }));
     }
     const newAllGameList = allGameList.filter((item) => item.id !== game.id);
     setAllGameList(newAllGameList);
