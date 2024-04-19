@@ -27,6 +27,57 @@
   background-size: cover;
   background-position: center;
 }
+.top-game-card .img-box .img-info {
+  padding: 24px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+.top-game-card .img-box:hover .img-info {
+  opacity: 1;
+}
+.img-box .img-info > div {
+  padding: 10px 0;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+.img-box .img-info > div:last-child {
+  border-bottom: none;
+}
+.img-box .img-info ul {
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+.img-box .img-info ul li {
+  margin-right: 10px;
+}
+.img-box .img-info .genre-li li {
+  padding: 5px 10px;
+  background: #fff;
+  color: #000;
+  border-radius: 10px;
+}
+.img-box .img-info .genre-li > span {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.img-box .img-info .platform-li > span {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.img-box .img-info .platform-li svg {
+  font-size: 25px;
+}
+.img-box .img-info .screenshot img {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: top;
+  width: 130px;
+}
 .top-game-card .desc-box {
   display: flex;
   flex-direction: column;
@@ -104,6 +155,9 @@
   }
   .top-game-card .img-box {
     width: 100%;
+  }
+  .top-game-card .img-box .img-info {
+    display: none;
   }
   .top-game-card .desc-box {
     position: absolute;

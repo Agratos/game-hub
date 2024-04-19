@@ -7,6 +7,7 @@ import userManagementSlice from './slice/userManagementSlice';
 import authenicateSlice from './slice/authenicateSlice';
 import searchValueSlice from './slice/searchValueSlice';
 import scoreGameSlice from './slice/scoreGameSlice';
+import hamburgerOnSlice from './slice/hamburgerMenuOpen';
 
 const persistConfig = {
   key: 'root',
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   auth: authenicateSlice,
   search: searchValueSlice,
   score: scoreGameSlice,
+  hamburger: hamburgerOnSlice,
 });
 
 const persistedAuthReducer = persistReducer(persistConfig, rootReducer);
