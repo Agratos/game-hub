@@ -18,6 +18,12 @@ p{
   margin: auto;
   display: flex;
   gap: 10px;
+  max-width: 1200px;
+}
+
+/* ddddddddddddddddddddddddd */
+.detail-section-1 div {
+ /* border: 1px white solid; */
 }
 
 
@@ -34,7 +40,7 @@ p{
 
 .detail-media-item-box {
   padding: 4px;
-  flex-basis: 50%;
+  flex-basis: 33%;
   height: 150px;
   cursor: pointer;
   overflow: hidden;
@@ -91,13 +97,17 @@ p{
 
 .detail-rank-add{
   display: flex;
-  gap: 8px;
+  gap: 15px;
   /* justify-content: center; */
   align-items: center;
 }
 
 .detail-rank{
-  font-size: 30px;
+  text-transform: capitalize;
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .detail-rating-bar{
@@ -109,9 +119,7 @@ p{
   overflow: hidden;
   max-width: 600px;
 }
-.detail-rating-bar div{
- 
-}
+
 
 .detail-rating-count{
   display: flex;
@@ -137,11 +145,10 @@ p{
   box-sizing: content-box;
 }
 
-.detail-rating-color{
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: white;
+
+.detail-about{
+    height: 100px;
+    overflow: auto;
 }
 
 /* 모바일화면 */
@@ -163,7 +170,6 @@ p{
   }
 
   .detail-media-item-box {
-    flex-basis: 33%;
     height: 80px;
   }
   
@@ -177,7 +183,7 @@ p{
   }
 
   .detail-rank{
-    font-size: 20px;
+    font-size: 15px;
   }
   
 

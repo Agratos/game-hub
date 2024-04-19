@@ -5,6 +5,7 @@ import { useGameScreenShotsQuery } from '../../hooks/apis/useGameScreenShots';
 import { Button } from 'react-bootstrap';
 import { IoAddCircle } from 'react-icons/io5';
 import { useGameTrailerQuery } from '../../hooks/apis/useGameTrailer';
+import { FaBan, FaMeh, FaRegGrinHearts, FaRegThumbsUp } from 'react-icons/fa';
 // import { useGameDetailQuery } from '../../hooks/apis/useGameDetail.js';
 
 const DetailPage = () => {
@@ -15,6 +16,13 @@ const DetailPage = () => {
   console.log('트레일러데이터', trailerData?.results);
 
   const bgColor = ['green', 'blue', 'yellow', 'red'];
+  const voteIcon = [
+    <FaRegGrinHearts key={'FaRegGrinHearts'} />,
+    <FaRegThumbsUp key={'FaRegThumbsUp'} />,
+    <FaMeh key={'FaMeh'} />,
+    <FaBan key={'FaBan'} />,
+  ];
+
   const { data: screenShotsData } = useGameScreenShotsQuery({ game_pk: 3498 });
   console.log('스크린샷불러온거 :', screenShotsData?.results);
 
@@ -39,24 +47,27 @@ const DetailPage = () => {
         <div className='detail-section-1-1'>
           <div className='detail-media-container'>
             {screenShotsData?.results.map((e, index) => {
-              console.log(e);
-              return (
-                <div className='detail-media-item-box' key={index}>
-                  {screenShotsData?.results.length - 1 === index ? (
-                    <div
-                      className='detail-media-item '
-                      style={{ backgroundImage: `url(${e.image})` }}
-                    >
-                      <div className='detail-media-item-overay'>more</div>
-                    </div>
-                  ) : (
-                    <div
-                      className='detail-media-item'
-                      style={{ backgroundImage: `url(${e.image})` }}
-                    />
-                  )}
-                </div>
-              );
+              if (index > 3) {
+                return;
+              } else {
+                return (
+                  <div className='detail-media-item-box' key={index}>
+                    {index === 3 ? (
+                      <div
+                        className='detail-media-item '
+                        style={{ backgroundImage: `url(${e.image})` }}
+                      >
+                        <div className='detail-media-item-overay'>more</div>
+                      </div>
+                    ) : (
+                      <div
+                        className='detail-media-item'
+                        style={{ backgroundImage: `url(${e.image})` }}
+                      />
+                    )}
+                  </div>
+                );
+              }
             })}
           </div>
         </div>
@@ -71,10 +82,12 @@ const DetailPage = () => {
                     .title
                 }
               </div>
-              <div>
-                {detailData.rating}({detailData.ratings_count.toLocaleString()}{' '}
-                votes)
-              </div>
+              <h6>
+                {detailData.rating} / 5 point{' '}
+                <span style={{ color: 'gray' }}>
+                  ({detailData.ratings_count.toLocaleString()} votes)
+                </span>
+              </h6>
             </div>
             <div className='detail-add'>
               <Button
@@ -121,13 +134,21 @@ const DetailPage = () => {
                 <button className='detail-rating-btn' key={index}>
                   <div
                     className='detail-rating-color'
-                    style={{ background: `${bgColor[index]}` }}
-                  ></div>
+                    style={{ color: `${bgColor[index]}` }}
+                  >
+                    {voteIcon[index]}
+                  </div>
                   <div style={{ fontWeight: 'bold' }}>{e.title}</div>
-                  <div style={{ color: 'gray' }}>{e.count}</div>
+                  <div style={{ color: 'gray' }}>
+                    {e.count.toLocaleString()}
+                  </div>
                 </button>
               );
             })}
+          </div>
+
+          <div className='detail-about'>
+            {detailData.description.replace(/<[^>]*>?/gm, '')}
           </div>
         </div>
       </div>
