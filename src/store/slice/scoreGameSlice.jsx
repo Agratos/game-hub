@@ -13,7 +13,7 @@ const scoreGameSlice = createSlice({
       state.scoredGames += 1;
     },
     addFavGames: (state, action) => {
-      state.favGames = [...state.favGames, action.payload.gameId];
+      state.favGames = [...state.favGames, action.payload.game];
     },
   },
 });

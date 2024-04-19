@@ -7,11 +7,14 @@ import 'swiper/css';
 import { useSelector } from 'react-redux';
 import './TopGamePage.style.css';
 import ShareLink from './component/ShareLink/ShareLink';
+import HowItWorks from './component/HowItWorks/HowItWorks';
+import FavoriteGames from './component/FavoriteGames/FavoriteGames';
 
 const TopGamePage = () => {
   const [allGameList, setAllGameList] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [barHeight, setBarHeight] = useState(0);
+  const favGamesList = useSelector((state) => state.score.favGames);
   const scoredGames = useSelector((state) => state.score.scoredGames);
   let topGameList = [];
   const getTopGameList = async () => {
@@ -64,6 +67,8 @@ const TopGamePage = () => {
         ))}
       </Swiper>
       <ShareLink />
+      <HowItWorks />
+      <FavoriteGames favGamesList={favGamesList} />
     </div>
   );
 };

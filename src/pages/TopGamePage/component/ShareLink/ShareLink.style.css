@@ -1,6 +1,7 @@
 .shareLinkWrap {
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
 }
 .shareLinkWrap .buttonBox {
   margin: 40px 0 0;
