@@ -7,6 +7,7 @@ import 'swiper/css';
 import { useSelector } from 'react-redux';
 import './TopGamePage.style.css';
 import ShareLink from './component/ShareLink/ShareLink';
+import HowItWorks from './component/HowItWorks/HowItWorks';
 
 const TopGamePage = () => {
   const [allGameList, setAllGameList] = useState(null);
@@ -64,6 +65,7 @@ const TopGamePage = () => {
         ))}
       </Swiper>
       <ShareLink />
+      <HowItWorks />
     </div>
   );
 };

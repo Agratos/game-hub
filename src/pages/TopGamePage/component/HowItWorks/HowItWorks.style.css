@@ -1,0 +1,88 @@
+.howItWorksWrap {
+  display: flex;
+  padding: 24px;
+  margin: 0 auto 60px;
+  width: 798px;
+  border: 2px solid hsla(0, 0%, 100%, 0.1);
+  color: #fff;
+  box-sizing: border-box;
+}
+.howItWorksWrap .leftCon {
+  width: 50%;
+}
+.howItWorksWrap .leftCon h3 {
+  text-align: right;
+  font-family: 'AlfaSlabOne-Regular';
+  font-size: 50px;
+}
+.howItWorksWrap .leftCon h3 span {
+  display: block;
+  font-size: 100px;
+}
+.howItWorksWrap .leftCon p {
+  text-align: right;
+  font-size: 18px;
+}
+.howItWorksWrap .rightCon {
+  width: 50%;
+}
+.howItWorksWrap .rightCon li {
+  position: relative;
+  padding-left: 115px;
+  margin-bottom: 20px;
+}
+.howItWorksWrap .rightCon li strong {
+  font-size: 22px;
+}
+
+.howItWorksWrap .rightCon li svg {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 60px;
+}
+
+@media (max-width: 992px) {
+  .howItWorksWrap {
+    display: block;
+    padding: 0;
+    width: 273px;
+    border: none;
+  }
+  .howItWorksWrap .leftCon {
+    width: 100%;
+  }
+  .howItWorksWrap .leftCon h3 {
+    text-align: center;
+    font-size: 30px;
+  }
+  .howItWorksWrap .leftCon h3 span {
+    font-size: 50px;
+  }
+  .howItWorksWrap .leftCon p {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+  }
+  .howItWorksWrap .rightCon {
+    width: 100%;
+  }
+  .howItWorksWrap .rightCon ul {
+    padding-left: 0;
+  }
+  .howItWorksWrap .rightCon li {
+    padding-left: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .howItWorksWrap .rightCon li strong {
+    display: block;
+    font-size: 20px;
+  }
+  .howItWorksWrap .rightCon li svg {
+    position: static;
+    transform: translateY(0);
+    font-size: 35px;
+  }
+}
