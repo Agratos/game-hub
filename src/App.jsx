@@ -18,8 +18,8 @@ const App = () => {
           <Route path='detail/:id' element={<DetailPage />} />
           <Route path='search' element={<SearchPage />} />
           <Route path='top-game' element={<TopGamePage />} />
+          <Route path='/login' element={<LoginPage />} />
         </Route>
-        <Route path='/login' element={<LoginPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </div>
