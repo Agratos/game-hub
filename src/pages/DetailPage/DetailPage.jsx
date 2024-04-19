@@ -1,18 +1,25 @@
-import React from 'react';
-import { data } from './data';
+import React, { useState } from 'react';
+// import { data } from './data';
 import './DetailPage.style.css';
 import { useGameScreenShotsQuery } from '../../hooks/apis/useGameScreenShots';
 import { Button } from 'react-bootstrap';
 import { IoAddCircle } from 'react-icons/io5';
 import { useGameTrailerQuery } from '../../hooks/apis/useGameTrailer';
 import { FaBan, FaMeh, FaRegGrinHearts, FaRegThumbsUp } from 'react-icons/fa';
-// import { useGameDetailQuery } from '../../hooks/apis/useGameDetail.js';
+import { useParams } from 'react-router-dom';
+import { useGameDetailQuery } from '../../hooks/apis/useGameDetail.js';
 
 const DetailPage = () => {
-  // const { data: detailData } = useGameDetailQuery({ id: 3498 });
-  // console.log('디테일데이터', detailData);
+  const { id } = useParams();
+  console.log(id);
 
-  const { data: trailerData } = useGameTrailerQuery({ id: 3498 });
+  const { data: detailData } = useGameDetailQuery({ id });
+  console.log('디테일데이터', detailData);
+  // const detailData = data;
+  //위 두개 중 하나만 쓰기
+
+  const [viewAllAbout, setViewAllAbout] = useState(false);
+  const { data: trailerData } = useGameTrailerQuery({ id });
   console.log('트레일러데이터', trailerData?.results);
 
   const bgColor = ['green', 'blue', 'yellow', 'red'];
@@ -23,23 +30,8 @@ const DetailPage = () => {
     <FaBan key={'FaBan'} />,
   ];
 
-  const { data: screenShotsData } = useGameScreenShotsQuery({ game_pk: 3498 });
+  const { data: screenShotsData } = useGameScreenShotsQuery({ game_pk: id });
   console.log('스크린샷불러온거 :', screenShotsData?.results);
-
-  // const trailerData = [
-  //   {
-  //     results: {
-  //       data: {
-  //         480: 'https://steamcdn-a.akamaihd.net/steam/apps/256693661/movie480.mp4',
-  //         max: 'https://steamcdn-a.akamaihd.net/steam/apps/256693661/movie_max.mp4',
-  //       },
-  //     },
-  //   },
-  // ];
-
-  // console.log('트레일러영상 링크 :', trailerData[0].results.data.max);
-
-  const detailData = data;
 
   return (
     <div className='detail-bg'>
@@ -73,19 +65,20 @@ const DetailPage = () => {
         </div>
 
         <div className='detail-section-1-2'>
-          <div className='datail-name'>{detailData.name}</div>
+          <div className='datail-name'>{detailData?.name}</div>
           <div className='detail-rank-add'>
             <div className='detail-rank'>
               <div>
                 {
-                  detailData.ratings.find((e) => e.id === detailData.rating_top)
-                    .title
+                  detailData?.ratings.find(
+                    (e) => e.id === detailData?.rating_top
+                  ).title
                 }
               </div>
               <h6>
-                {detailData.rating} / 5 point{' '}
+                {detailData?.rating} / 5 point{' '}
                 <span style={{ color: 'gray' }}>
-                  ({detailData.ratings_count.toLocaleString()} votes)
+                  ({detailData?.ratings_count.toLocaleString()} votes)
                 </span>
               </h6>
             </div>
@@ -116,7 +109,7 @@ const DetailPage = () => {
             </div>
           </div>
           <div className='detail-rating-bar'>
-            {detailData.ratings.map((e, index) => {
+            {detailData?.ratings.map((e, index) => {
               return (
                 <div
                   style={{
@@ -129,7 +122,7 @@ const DetailPage = () => {
             })}
           </div>
           <div className='detail-rating-count'>
-            {detailData.ratings.map((e, index) => {
+            {detailData?.ratings.map((e, index) => {
               return (
                 <button className='detail-rating-btn' key={index}>
                   <div
@@ -146,9 +139,19 @@ const DetailPage = () => {
               );
             })}
           </div>
-
           <div className='detail-about'>
-            {detailData.description.replace(/<[^>]*>?/gm, '')}
+            <h4>About</h4>
+            {viewAllAbout
+              ? detailData?.description.replace(/<[^>]*>?/gm, '')
+              : detailData?.description
+                  .replace(/<[^>]*>?/gm, '')
+                  .slice(0, 300) + '...'}
+            <button
+              className='detail-about-more-btn'
+              onClick={() => setViewAllAbout(!viewAllAbout)}
+            >
+              {!viewAllAbout ? '▼Read more' : '▲Show less'}
+            </button>
           </div>
         </div>
       </div>
