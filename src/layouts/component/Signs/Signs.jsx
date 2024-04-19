@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Signs.style.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { authenicateActions } from '../../store/slice/authenicateSlice';
+// import { authenicateActions } from '../../../../store/slice/authenicateSlice';
+import { authenicateActions } from '../../../store/slice/authenicateSlice';
 import { IoPersonCircleOutline } from 'react-icons/io5';
 
 const Signs = () => {

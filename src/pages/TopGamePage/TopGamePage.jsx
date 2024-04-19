@@ -9,6 +9,7 @@ import './TopGamePage.style.css';
 import ShareLink from './component/ShareLink/ShareLink';
 import HowItWorks from './component/HowItWorks/HowItWorks';
 import FavoriteGames from './component/FavoriteGames/FavoriteGames';
+import LoadingSpinner from '../../commons/LoadingSpinner/LoadingSpinner';
 
 const TopGamePage = () => {
   const [allGameList, setAllGameList] = useState(null);
@@ -45,7 +46,11 @@ const TopGamePage = () => {
   }, [scoredGames]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <LoadingSpinner />
+      </div>
+    );
   }
   return (
     <div className='topGamePageWrap'>

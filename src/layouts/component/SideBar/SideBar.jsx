@@ -1,10 +1,11 @@
 import React from 'react';
 import './SideBar.style.css';
 import { Link } from 'react-router-dom';
+// import Signs from '../Header/Signs/Signs';
 import Signs from '../Signs/Signs';
 import { IoCloseCircleSharp } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
-import { hamburgerActions } from '../../store/slice/hamburgerMenuOpen';
+import { hamburgerActions } from '../../../store/slice/hamburgerMenuOpen';
 
 const SideBar = () => {
   const dispatch = useDispatch();
