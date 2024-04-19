@@ -87,10 +87,9 @@
 .mainpage-card-title{
     font-size: 1.2rem;
     font-weight: bold;
-    cursor: pointer;
     transition: opacity 0.2s ease; /* 색상 변경에 대한 전환 효과 설정 */
 }
-.mainpage-card-title:hover{
+.mainpage-card-title > a:hover{
     opacity: 0.6;
 }
 
