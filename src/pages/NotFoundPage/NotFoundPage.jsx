@@ -7,6 +7,7 @@ const NotFoundPage = () => {
   return (
     <div className='notfound-container'>
       <Header />
+
       <div className='notfoun-box'>
         <h2 className='notfound-text'>
           The page you’re looking <br /> for can’t be found.
