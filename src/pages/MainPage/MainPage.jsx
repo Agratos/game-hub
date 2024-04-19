@@ -18,7 +18,8 @@ const MainPage = () => {
   const [query,] = useSearchParams();
 
   const {data,isSuccess,isError,error} = useGameListPaginationQuery({page:page, ordering: query.get("ordering") ? query.get("ordering") : ORDER_ARR[0]});
-  // isSuccess && console.log('여기는 메인 페이지 DATA : ',data, isSuccess);
+  // isSuccess && console.log('여기는 메인 페이지 DATA : ',data);
+
   if(isError){
     console.log(error);
   }
