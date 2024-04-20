@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { data } from './data';
 import './DetailPage.style.css';
 import { useGameScreenShotsQuery } from '../../hooks/apis/useGameScreenShots';
@@ -8,10 +8,11 @@ import { useGameTrailerQuery } from '../../hooks/apis/useGameTrailer';
 import { FaBan, FaMeh, FaRegGrinHearts, FaRegThumbsUp } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import { useGameDetailQuery } from '../../hooks/apis/useGameDetail.js';
+import MoreImageModal from './component/MoreImageModal.js';
 
 const DetailPage = () => {
   const { id } = useParams();
-  console.log(id);
+  console.log('디테일/id :', id);
 
   const { data: detailData, isLoading: detailLoading } = useGameDetailQuery({
     id,
@@ -27,12 +28,27 @@ const DetailPage = () => {
   console.log('트레일러데이터', trailerData?.results);
 
   const bgColor = ['green', 'blue', 'yellow', 'red'];
+  const voteName = ['exceptional', 'recommended', 'meh', 'skip'];
   const voteIcon = [
     <FaRegGrinHearts key={'FaRegGrinHearts'} />,
     <FaRegThumbsUp key={'FaRegThumbsUp'} />,
     <FaMeh key={'FaMeh'} />,
     <FaBan key={'FaBan'} />,
   ];
+
+  const [voteIndex, setVoteIndex] = useState(0);
+  const [moreImageModal, setMoreImageModal] = useState(false);
+  const [selectImageIndex, setSelectImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (!detailLoading) {
+      let voteTitle = detailData?.ratings.find(
+        (e) => e.id === detailData?.rating_top
+      )?.title;
+      let setIndex = voteName.indexOf(voteTitle);
+      setVoteIndex(setIndex);
+    }
+  }, [detailLoading]);
 
   const { data: screenShotsData, isLoading: screenShotLoading } =
     useGameScreenShotsQuery({ game_pk: id });
@@ -41,6 +57,13 @@ const DetailPage = () => {
   if (!detailLoading && !trailerLoading && !screenShotLoading) {
     return (
       <div className='detail-bg'>
+        {moreImageModal ? (
+          <MoreImageModal
+            id={id}
+            setMoreImageModal={setMoreImageModal}
+            selectImageIndex={selectImageIndex}
+          />
+        ) : null}
         <div className='detail-section-1'>
           <div className='detail-section-1-1'>
             <div className='detail-media-container'>
@@ -49,13 +72,22 @@ const DetailPage = () => {
                   return;
                 } else {
                   return (
-                    <div className='detail-media-item-box' key={index}>
+                    <button
+                      onClick={() => {
+                        setMoreImageModal(true);
+                        setSelectImageIndex(index);
+                      }}
+                      className='detail-media-item-box'
+                      key={index}
+                    >
                       {index === 3 ? (
                         <div
                           className='detail-media-item '
                           style={{ backgroundImage: `url(${e.image})` }}
                         >
-                          <div className='detail-media-item-overay'>more</div>
+                          {screenShotsData?.results.length <= 4 ? null : (
+                            <div className='detail-media-item-overay'>more</div>
+                          )}
                         </div>
                       ) : (
                         <div
@@ -63,7 +95,7 @@ const DetailPage = () => {
                           style={{ backgroundImage: `url(${e.image})` }}
                         />
                       )}
-                    </div>
+                    </button>
                   );
                 }
               })}
@@ -75,10 +107,13 @@ const DetailPage = () => {
             <div className='detail-rank-add'>
               <div className='detail-rank'>
                 <div>
+                  <span style={{ color: `${bgColor[voteIndex]}` }}>
+                    {voteIcon[voteIndex]}{' '}
+                  </span>
                   {
-                    detailData?.ratings.find(
+                    detailData?.ratings?.find(
                       (e) => e.id === detailData?.rating_top
-                    ).title
+                    )?.title
                   }
                 </div>
                 <h6>
@@ -115,11 +150,15 @@ const DetailPage = () => {
               </div>
             </div>
             <div className='detail-rating-bar'>
-              {detailData?.ratings.map((e, index) => {
+              {voteName.map((e, index) => {
+                let percent =
+                  detailData.ratings?.find((rating) => rating.title === e)
+                    ?.percent ?? 0;
+                console.log(percent);
                 return (
                   <div
                     style={{
-                      width: `${e.percent}%`,
+                      width: `${percent}%`,
                       background: `${bgColor[index]}`,
                     }}
                     key={index}
@@ -128,7 +167,7 @@ const DetailPage = () => {
               })}
             </div>
             <div className='detail-rating-count'>
-              {detailData?.ratings.map((e, index) => {
+              {voteName.map((e, index) => {
                 return (
                   <button className='detail-rating-btn' key={index}>
                     <div
@@ -137,9 +176,10 @@ const DetailPage = () => {
                     >
                       {voteIcon[index]}
                     </div>
-                    <div style={{ fontWeight: 'bold' }}>{e.title}</div>
+                    <div style={{ fontWeight: 'bold' }}>{e}</div>
                     <div style={{ color: 'gray' }}>
-                      {e.count.toLocaleString()}
+                      {detailData?.ratings?.find((rating) => rating.title === e)
+                        ?.count ?? 0}
                     </div>
                   </button>
                 );
