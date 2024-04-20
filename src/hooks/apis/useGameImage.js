@@ -7,7 +7,7 @@ export const useGameImageQuery = ({ id }) => {
   };
 
   return useQuery({
-    queryKey: ['game-list', id],
+    queryKey: ['game-image', id],
     queryFn: getGameImage,
     select: (res) => res.data,
     retry: false,
