@@ -46,3 +46,6 @@
 .applayout-wrapper .m-sidebar li {
   color: #1d1d1f;
 }
+.headerlayout-hd {
+  display: none;
+}

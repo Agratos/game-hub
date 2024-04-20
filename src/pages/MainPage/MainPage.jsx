@@ -111,14 +111,7 @@ const MainPage = () => {
   return (
     <Container className='mainpage-area' style={{ marginTop: '32px' }}>
       <div>
-        <h1
-          style={{
-            fontSize: '64px',
-          }}
-          className='fw-bold'
-        >
-          New and trending
-        </h1>
+        <h1 className='fw-bold Mainpage-title'>New and trending</h1>
         <span
           style={{
             color: '#86868b',

@@ -6,7 +6,7 @@
   gap: 12px;
 }
 .slidebar-list-item {
-  font-size: 23px;
+  font-size: 20px;
   cursor: pointer;
   opacity: 0.8;
   transition: all 0.2s;
@@ -25,6 +25,27 @@
 }
 .sidebar-m-menu-close {
   display: none;
+}
+.side-topgame-link-item {
+  background-color: #242426;
+  padding: 6px 10px;
+  text-align: center;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  color: inherit;
+  width: 100%;
+}
+.side-topgame-link-item:hover {
+  background-color: #fff;
+  color: #101010;
+  padding: 6px 10px;
+  text-align: center;
+  border-radius: 6px;
+  margin-bottom: 20px;
 }
 @media screen and (max-width: 992px) {
   .slidebar-list {
@@ -74,5 +95,25 @@
     margin-right: 8px;
     font-size: 16px;
     vertical-align: middle;
+  }
+  .side-topgame-link-item {
+    background-color: #000;
+    padding: 6px 10px;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #fff !important;
+  }
+  .side-topgame-link-item:hover {
+    background-color: #000;
+    padding: 6px 10px;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #fff !important;
   }
 }

@@ -7,7 +7,9 @@
   gap: 20px;
   max-width: 100%;
 }
-
+.Mainpage-title {
+  font-size: 64px;
+}
 .main-page-dropdown-area {
   display: flex;
   gap: 0.4rem;
@@ -48,6 +50,9 @@
   }
   .mainpage-card-contents-area {
     column-width: 350px;
+  }
+  .Mainpage-title {
+    font-size: 42px;
   }
 }
 /* 추가코드 */

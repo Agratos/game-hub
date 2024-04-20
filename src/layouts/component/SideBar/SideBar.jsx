@@ -1,6 +1,6 @@
 import React from 'react';
 import './SideBar.style.css';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import Signs from '../Header/Signs/Signs';
 import Signs from '../Signs/Signs';
 import { IoCloseCircleSharp } from 'react-icons/io5';
@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { hamburgerActions } from '../../../store/slice/hamburgerMenuOpen';
 
 const SideBar = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const sideBarList = [
     'Home',
@@ -33,7 +34,12 @@ const SideBar = () => {
       </button>
       <ul className='slidebar-list'>
         <li>
-          <Link to='/top-game'>Rate top games</Link>
+          <button
+            className='side-topgame-link-item'
+            onClick={() => navigate('/top-game')}
+          >
+            Rate top gamesx
+          </button>
         </li>
         {sideBarList.map((item, index) => (
           <li className='slidebar-list-item' key={index}>
