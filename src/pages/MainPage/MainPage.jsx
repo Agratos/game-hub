@@ -31,10 +31,11 @@ const MainPage = () => {
 
   const buttonRef = useRef(null);
 
-  const {data,isLoading ,isSuccess, isError, error} = useGameListPaginationQuery({page:page, ordering: query.get("ordering") ? query.get("ordering") : ORDER_ARR[0]});
+  const {data,isLoading ,isSuccess, isError, error} = useGameListPaginationQuery({page:page, ordering: query.get("ordering") ? query.get("ordering") : ORDER_ARR[0], platforms: query.get("parent_platforms") ? query.get("parent_platforms") : null});
   // isSuccess && console.log('여기는 메인 페이지 DATA : ',page,data);
 
   if(isError){
+    <Button className="mb-5" onClick={() => handlePagination()}>Add List</Button>
     console.log(error);
   }
 
@@ -112,17 +113,19 @@ const MainPage = () => {
       </div>
       <div className='main-page-dropdown-area'>
         <OrderByDropdown ORDER_ARR={ORDER_ARR} />
-        <FilterPlatfomrsDropdown />
+        <FilterPlatfomrsDropdown ORDER_ARR={ORDER_ARR}/>
       </div>
       <div className='mainpage-card-contents-area mb-3 '>
-        {isDataList.length !== 0 &&
+        {isDataList?.length !== 0 &&
           isDataList?.map((item, index) => (
             <Col className='mainpage-card-contents-box' key={index}>
               <ContentsCard item={item} />
             </Col>
           ))}
       </div>
-      {isLoading ? <LoadingSpinner /> :  isViewBtn && <Button ref={buttonRef} className="mb-5" onClick={() => handlePagination()}>Add List</Button>}
+      <div className='d-flex justify-content-center' style={{width:"100%"}}>
+        {isLoading ? <LoadingSpinner /> :  isViewBtn && <button ref={buttonRef} className="mb-5 mainpage-reload-btn" onClick={() => handlePagination()}>Load more</button>}
+      </div>
     </Container>)
 };
 
