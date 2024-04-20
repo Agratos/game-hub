@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { TiDelete } from 'react-icons/ti';
-
 import './Header.style.css';
-import logoImg from './img/logo.svg';
+// import logoImg from './img/logo.svg';
+import logoImg from '../../img/logo.svg';
+
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { searchActions } from '../../store/slice/searchValueSlice';
-import { hamburgerActions } from '../../store/slice/hamburgerMenuOpen';
+import { searchActions } from '../../../store/slice/searchValueSlice';
+import { hamburgerActions } from '../../../store/slice/hamburgerMenuOpen';
 
-import { useGameListQuery } from '../../hooks/apis/useGameList';
+import { useGameListQuery } from '../../../hooks/apis/useGameList';
 import { RxHamburgerMenu } from 'react-icons/rx';
+
 import Signs from '../Signs/Signs';
 
 const Header = () => {

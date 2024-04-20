@@ -6,6 +6,7 @@ import React from 'react'
 const exceptContents = [1081, 50];
 
 const ContentsCard = ({item}) => {
+
 // 1081, 50 tags 는 제외 시키기.
   const handleImage = () => {
     // console.log(item?.tags.filter((el) => exceptContents.includes(el.id)).length === 0 && item?.background_image);
@@ -31,9 +32,9 @@ const ContentsCard = ({item}) => {
               )}
           </div>
           <figcaption>
-            <h4>
-              {item?.name}
-            </h4>
+              <h4 className="mainpage-card-title">
+                  <a href={`/detail/${item?.id}`}>{item?.name}</a>
+              </h4>
             <div className="mainpage-card-overlay">
               <div className="mainpage-card-text-box">
                 Release date:
