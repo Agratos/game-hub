@@ -17,10 +17,11 @@
   font-size: 23px;
   border: none;
   border-radius: 100rem;
-  padding: 5px 20px;
+  padding: 6px 20px;
   margin: auto;
   font-weight: bold;
   margin: 0;
+  width: 500px;
 }
 .notfound-bt span::after {
   content: '>';
@@ -34,4 +35,10 @@
   align-items: center;
   flex-direction: column;
   gap: 50px;
+}
+.notfound-icon {
+  color: #6e6e73;
+  width: 100px;
+  height: auto;
+  margin-top: -200px;
 }
