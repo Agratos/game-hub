@@ -1,11 +1,14 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { authenicateActions } from '../../../store/slice/authenicateSlice';
 
 const MainPageHeader = ({ userName }) => {
+  const dispatch = useDispatch();
   return (
     <>
       <article className='mypage-header-title'>
         <h3>계정</h3>
-        <button>
+        <button onClick={() => dispatch(authenicateActions.logout())}>
           <span>Sign out</span>
         </button>
       </article>
