@@ -1,127 +1,129 @@
-.mainpage-card-area{
-    color: white;
-    border-color: #151515;
-    background-color: #202020;
-    transition: scale 0.2s ease; /* 색상 변경에 대한 전환 효과 설정 */
-
+.mainpage-card-area {
+  color: white;
+  border-color: #151515;
+  background-color: #202020;
+  transition: scale 0.2s ease; /* 색상 변경에 대한 전환 효과 설정 */
+  /* 추가코드 */
+  width: 100% !important;
 }
 
-
-.mainpage-card-area:hover{
-    /* position: absolute; */
-    z-index: 2;
-    scale: 105%;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+.mainpage-card-area:hover {
+  /* position: absolute; */
+  z-index: 2;
+  scale: 105%;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
-
-.mainpage-card-area .mainpage-card-overlay{
-    /* display: block; */
-    display: none;
-    height: 0;
-    font-size: 0.6rem;
-    color: hsla(0, 0%, 100%, .4);
-    padding: 15px;
+.mainpage-card-area .mainpage-card-overlay {
+  /* display: block; */
+  display: none;
+  height: 0;
+  font-size: 0.6rem;
+  color: hsla(0, 0%, 100%, 0.4);
+  padding: 15px;
 }
 
-.mainpage-card-area:hover .mainpage-card-overlay{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+.mainpage-card-area:hover .mainpage-card-overlay {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
-    margin: -10px;
-    margin-top: 5px;
-    padding: 10px;
+  margin: -10px;
+  margin-top: 5px;
+  padding: 10px;
 
-    background-color: #202020;
-    position: absolute;
-    z-index: 2;
+  background-color: #202020;
+  position: absolute;
+  z-index: 2;
 
-    height: fit-content;
-    box-shadow: 2px 4px 5px -1px rgba(0, 0, 0, 0.5);
-    
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+  height: fit-content;
+  box-shadow: 2px 4px 5px -1px rgba(0, 0, 0, 0.5);
+
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
-.mainpage-card-area:hover .mainpage-card-overlay .mainpage-card-text-box{
-    border-bottom: 1px solid hsla(0, 0%, 100%, .2);
-    padding: 5px 0;
-    display: flex;
-    justify-content: space-between;
+.mainpage-card-area:hover .mainpage-card-overlay .mainpage-card-text-box {
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.2);
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
-.mainpage-card-area:hover .mainpage-card-overlay div > span{
-    color: white;
+.mainpage-card-area:hover .mainpage-card-overlay div > span {
+  color: white;
 }
 
-
-.mainpage-card-overlay .mainpage-card-text-genres-box{
-    display: flex;
-    gap: 5px;
+.mainpage-card-overlay .mainpage-card-text-genres-box {
+  display: flex;
+  gap: 5px;
 }
 
-
-.mainpage-card-overlay .mainpage-card-text-genres-box > span{
-    height: 0.8rem;
-    border-bottom: 1px solid hsla(0, 0%, 100%, .5);
+.mainpage-card-overlay .mainpage-card-text-genres-box > span {
+  height: 0.8rem;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
 }
 
-.platform-box{
-    height: fit-content;
-    padding: 10px;
+.platform-box {
+  height: fit-content;
+  padding: 10px;
 
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.platform-box > div{
-    width: 13px;
-    height: 13px;
-    background-repeat: no-repeat;
-    background-position: center;
+.platform-box > div {
+  width: 13px;
+  height: 13px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.mainpage-card-title{
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: opacity 0.2s ease; /* 색상 변경에 대한 전환 효과 설정 */
+.mainpage-card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: opacity 0.2s ease; /* 색상 변경에 대한 전환 효과 설정 */
 }
-.mainpage-card-title > a:hover{
-    opacity: 0.6;
+.mainpage-card-title > a:hover {
+  opacity: 0.6;
 }
 
 /* icon */
 .platforms__platform_xbox {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiAxNic+PHBhdGggZmlsbD0nI0ZGRicgZD0nTTMuNTY0IDEuMzU3bC0uMDIyLjAyYy4wNDYtLjA0OC4xMS0uMS4xNTQtLjEyOEM0Ljk0OC40MzUgNi4zOTYgMCA4IDBjMS41MDIgMCAyLjkwOC40MTUgNC4xMSAxLjEzNi4wODYuMDUyLjMyNC4yMTUuNDQ2LjM2M0MxMS40LjIyMiA3Ljk5MyAyLjk2MiA3Ljk5MyAyLjk2MmMtMS4xNzctLjkwOC0yLjI2LTEuNTI2LTMuMDY3LTEuNzQ2LS42NzQtLjE4NS0xLjE0LS4wMy0xLjM2Mi4xNDF6bTEwLjMwNSAxLjIwOGMtLjAzNS0uMDQtLjA3NC0uMDc2LS4xMDktLjExNi0uMjkzLS4zMjItLjY1My0uNC0uOTc4LS4zNzgtLjI5NS4wOTItMS42Ni41ODQtMy4zNDIgMi4xNzIgMCAwIDEuODk0IDEuODQxIDMuMDUzIDMuNzIzIDEuMTU5IDEuODgzIDEuODUyIDMuMzYyIDEuNDI2IDUuNDE1QTcuOTY5IDcuOTY5IDAgMDAxNiA3Ljk5OWE3Ljk2OCA3Ljk2OCAwIDAwLTIuMTMtNS40MzR6TTEwLjk4IDguNzdhNTUuNDE2IDU1LjQxNiAwIDAwLTIuMjg3LTIuNDA1IDUyLjg0IDUyLjg0IDAgMDAtLjctLjY4NmwtLjg0OC44NTRjLS42MTQuNjItMS40MTEgMS40My0xLjg1MyAxLjkwMi0uNzg3Ljg0LTMuMDQzIDMuNDc5LTMuMTcgNC45NTggMCAwLS41MDItMS4xNzQuNi0zLjg4LjcyLTEuNzY5IDIuODkzLTQuNDI1IDMuODAxLTUuMjkgMCAwLS44My0uOTEzLTEuODctMS41NDRsLS4wMDctLjAwMnMtLjAxMS0uMDA5LS4wMy0uMDJjLS41LS4zLTEuMDQ3LS41My0xLjU3My0uNTZhMS4zOTEgMS4zOTEgMCAwMC0uODc4LjQzMUE4IDggMCAwMDEzLjkyIDEzLjM4MWMwLS4wMDItLjE2OS0xLjA1Ni0xLjI0NS0yLjU3LS4yNTMtLjM1NC0xLjE3OC0xLjQ2LTEuNjk2LTIuMDR6Jy8+PC9zdmc+);
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiAxNic+PHBhdGggZmlsbD0nI0ZGRicgZD0nTTMuNTY0IDEuMzU3bC0uMDIyLjAyYy4wNDYtLjA0OC4xMS0uMS4xNTQtLjEyOEM0Ljk0OC40MzUgNi4zOTYgMCA4IDBjMS41MDIgMCAyLjkwOC40MTUgNC4xMSAxLjEzNi4wODYuMDUyLjMyNC4yMTUuNDQ2LjM2M0MxMS40LjIyMiA3Ljk5MyAyLjk2MiA3Ljk5MyAyLjk2MmMtMS4xNzctLjkwOC0yLjI2LTEuNTI2LTMuMDY3LTEuNzQ2LS42NzQtLjE4NS0xLjE0LS4wMy0xLjM2Mi4xNDF6bTEwLjMwNSAxLjIwOGMtLjAzNS0uMDQtLjA3NC0uMDc2LS4xMDktLjExNi0uMjkzLS4zMjItLjY1My0uNC0uOTc4LS4zNzgtLjI5NS4wOTItMS42Ni41ODQtMy4zNDIgMi4xNzIgMCAwIDEuODk0IDEuODQxIDMuMDUzIDMuNzIzIDEuMTU5IDEuODgzIDEuODUyIDMuMzYyIDEuNDI2IDUuNDE1QTcuOTY5IDcuOTY5IDAgMDAxNiA3Ljk5OWE3Ljk2OCA3Ljk2OCAwIDAwLTIuMTMtNS40MzR6TTEwLjk4IDguNzdhNTUuNDE2IDU1LjQxNiAwIDAwLTIuMjg3LTIuNDA1IDUyLjg0IDUyLjg0IDAgMDAtLjctLjY4NmwtLjg0OC44NTRjLS42MTQuNjItMS40MTEgMS40My0xLjg1MyAxLjkwMi0uNzg3Ljg0LTMuMDQzIDMuNDc5LTMuMTcgNC45NTggMCAwLS41MDItMS4xNzQuNi0zLjg4LjcyLTEuNzY5IDIuODkzLTQuNDI1IDMuODAxLTUuMjkgMCAwLS44My0uOTEzLTEuODctMS41NDRsLS4wMDctLjAwMnMtLjAxMS0uMDA5LS4wMy0uMDJjLS41LS4zLTEuMDQ3LS41My0xLjU3My0uNTZhMS4zOTEgMS4zOTEgMCAwMC0uODc4LjQzMUE4IDggMCAwMDEzLjkyIDEzLjM4MWMwLS4wMDItLjE2OS0xLjA1Ni0xLjI0NS0yLjU3LS4yNTMtLjM1NC0xLjE3OC0xLjQ2LTEuNjk2LTIuMDR6Jy8+PC9zdmc+);
 }
 
 .platforms__platform_pc {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMTYgMTYnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTAgMTMuNzcybDYuNTQ1LjkwMlY4LjQyNkgwek0wIDcuNjJoNi41NDVWMS4yOTZMMCAyLjE5OHptNy4yNjUgNy4xNWw4LjcwNCAxLjJWOC40MjVINy4yNjV6bTAtMTMuNTd2Ni40Mmg4LjcwNFYweicgZmlsbD0nI0ZGRicvPjwvc3ZnPg==);
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMTYgMTYnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTAgMTMuNzcybDYuNTQ1LjkwMlY4LjQyNkgwek0wIDcuNjJoNi41NDVWMS4yOTZMMCAyLjE5OHptNy4yNjUgNy4xNWw4LjcwNCAxLjJWOC40MjVINy4yNjV6bTAtMTMuNTd2Ni40Mmg4LjcwNFYweicgZmlsbD0nI0ZGRicvPjwvc3ZnPg==);
 }
 
 .platforms__platform_playstation {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjEgMTYnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTExLjExMiAxNkw4IDE0LjY1NFYwczYuNzY0IDEuMTQ3IDcuNjk1IDMuOTg3Yy45MzEgMi44NDItLjUyIDQuNjgyLTEuMDMgNC43MzYtMS40Mi4xNS0xLjk2LS43NDgtMS45Ni0uNzQ4VjMuMzlsLTEuNTQ0LS42NDhMMTEuMTEyIDE2ek0xMiAxNC4zMlYxNnM3LjY2Ni0yLjMzOCA4Ljc5NC0zLjI0YzEuMTI4LS45LTIuNjQxLTMuMTQyLTQuNjY2LTIuNzA0IDAgMC0yLjE1Mi4wOTktNC4xMDIuOTAxLS4wMTkuMDA4IDAgMS41MSAwIDEuNTFsNC45NDgtMS4wOTUgMS43NDMuNzNMMTIgMTQuMzJ6bS01LjAyNC0uNzczcy0uOTQyLjQ3Ni0zLjA0MS40NTJjLTIuMS0uMDI0LTMuOTU5LS41OTUtMy45MzUtMS44MzNDLjAyNCAxMC45MjggMy40NzYgOS41NzEgNi45NTIgOXYxLjczOGwtMy42OTMuOTUycy0uNjMyLjc4Ni4yMTcuODFBMTEuOTM0IDExLjkzNCAwIDAwNyAxMi4wNDZsLS4wMjQgMS41eicgZmlsbD0nI0ZGRicvPjwvc3ZnPg==);
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjEgMTYnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTExLjExMiAxNkw4IDE0LjY1NFYwczYuNzY0IDEuMTQ3IDcuNjk1IDMuOTg3Yy45MzEgMi44NDItLjUyIDQuNjgyLTEuMDMgNC43MzYtMS40Mi4xNS0xLjk2LS43NDgtMS45Ni0uNzQ4VjMuMzlsLTEuNTQ0LS42NDhMMTEuMTEyIDE2ek0xMiAxNC4zMlYxNnM3LjY2Ni0yLjMzOCA4Ljc5NC0zLjI0YzEuMTI4LS45LTIuNjQxLTMuMTQyLTQuNjY2LTIuNzA0IDAgMC0yLjE1Mi4wOTktNC4xMDIuOTAxLS4wMTkuMDA4IDAgMS41MSAwIDEuNTFsNC45NDgtMS4wOTUgMS43NDMuNzNMMTIgMTQuMzJ6bS01LjAyNC0uNzczcy0uOTQyLjQ3Ni0zLjA0MS40NTJjLTIuMS0uMDI0LTMuOTU5LS41OTUtMy45MzUtMS44MzNDLjAyNCAxMC45MjggMy40NzYgOS41NzEgNi45NTIgOXYxLjczOGwtMy42OTMuOTUycy0uNjMyLjc4Ni4yMTcuODFBMTEuOTM0IDExLjkzNCAwIDAwNyAxMi4wNDZsLS4wMjQgMS41eicgZmlsbD0nI0ZGRicvPjwvc3ZnPg==);
 }
 
 .platforms__platform_mac {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNSAxOCc+PHBhdGggZD0nTTEwLjg2OSAwaC4xMjdjLjEwMiAxLjI2LS4zNzkgMi4yMDItLjk2MyAyLjg4NC0uNTc0LjY3Ny0xLjM1OSAxLjMzNC0yLjYyOSAxLjIzNC0uMDg0LTEuMjQyLjM5Ny0yLjExNC45OC0yLjc5NEM4LjkyNy42OSA5LjkxOS4xMjYgMTAuODcgMHptMy43NTYgMTMuMTk2di4wMzZhMTAuNTM0IDEwLjUzNCAwIDAxLTEuNDk0IDIuODk5Yy0uNTcuNzg5LTEuMjY3IDEuODUtMi41MTMgMS44NS0xLjA3NyAwLTEuNzkyLS42OTYtMi44OTYtLjcxNS0xLjE2Ny0uMDItMS44MS41ODMtMi44NzcuNzM0aC0uMzY0Yy0uNzgzLS4xMTQtMS40MTYtLjc0LTEuODc3LTEuMzAyQTExLjQ1MiAxMS40NTIgMCAwMTAgMTAuMTM0di0uODA4Yy4wODMtMS45NjkgMS4wMzMtMy41NyAyLjI5NS00LjM0NS42NjctLjQxMyAxLjU4My0uNzY0IDIuNjAzLS42MDcuNDM3LjA2OC44ODQuMjE5IDEuMjc1LjM2OC4zNzEuMTQ0LjgzNS4zOTggMS4yNzUuMzg1LjI5OC0uMDA5LjU5NC0uMTY1Ljg5NC0uMjc1Ljg4LS4zMiAxLjc0LS42ODcgMi44NzctLjUxNCAxLjM2NS4yMDcgMi4zMzQuODE4IDIuOTMzIDEuNzYtMS4xNTUuNzQtMi4wNjggMS44NTUtMS45MTIgMy43Ni4xMzggMS43MyAxLjEzNyAyLjc0MiAyLjM4NSAzLjMzOHonIGZpbGw9JyNGRkYnLz48L3N2Zz4=);
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNSAxOCc+PHBhdGggZD0nTTEwLjg2OSAwaC4xMjdjLjEwMiAxLjI2LS4zNzkgMi4yMDItLjk2MyAyLjg4NC0uNTc0LjY3Ny0xLjM1OSAxLjMzNC0yLjYyOSAxLjIzNC0uMDg0LTEuMjQyLjM5Ny0yLjExNC45OC0yLjc5NEM4LjkyNy42OSA5LjkxOS4xMjYgMTAuODcgMHptMy43NTYgMTMuMTk2di4wMzZhMTAuNTM0IDEwLjUzNCAwIDAxLTEuNDk0IDIuODk5Yy0uNTcuNzg5LTEuMjY3IDEuODUtMi41MTMgMS44NS0xLjA3NyAwLTEuNzkyLS42OTYtMi44OTYtLjcxNS0xLjE2Ny0uMDItMS44MS41ODMtMi44NzcuNzM0aC0uMzY0Yy0uNzgzLS4xMTQtMS40MTYtLjc0LTEuODc3LTEuMzAyQTExLjQ1MiAxMS40NTIgMCAwMTAgMTAuMTM0di0uODA4Yy4wODMtMS45NjkgMS4wMzMtMy41NyAyLjI5NS00LjM0NS42NjctLjQxMyAxLjU4My0uNzY0IDIuNjAzLS42MDcuNDM3LjA2OC44ODQuMjE5IDEuMjc1LjM2OC4zNzEuMTQ0LjgzNS4zOTggMS4yNzUuMzg1LjI5OC0uMDA5LjU5NC0uMTY1Ljg5NC0uMjc1Ljg4LS4zMiAxLjc0LS42ODcgMi44NzctLjUxNCAxLjM2NS4yMDcgMi4zMzQuODE4IDIuOTMzIDEuNzYtMS4xNTUuNzQtMi4wNjggMS44NTUtMS45MTIgMy43Ni4xMzggMS43MyAxLjEzNyAyLjc0MiAyLjM4NSAzLjMzOHonIGZpbGw9JyNGRkYnLz48L3N2Zz4=);
 }
 
 .platforms__platform_nintendo {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyMSAxNic+PHBhdGggZmlsbD0nI0ZGRicgZmlsbC1ydWxlPSdldmVub2RkJyBkPSdNOCAwaDVhOCA4IDAgMTEwIDE2SDhBOCA4IDAgMTE4IDB6bS0uMTM1IDEuOTM1YTYuMDY1IDYuMDY1IDAgMDAwIDEyLjEzaDUuMTJhNi4wNjUgNi4wNjUgMCAwMDAtMTIuMTNoLTUuMTJ6bS0xLjMzIDIuMzA0aDIuNDAxbDMuMTk5IDUuMTc1VjQuMjRoMi4zNDZ2Ny40OTVIMTIuMThMOC44NjQgNi41Mzd2NS4yMDFINi41M2wuMDA1LTcuNDk5eicvPjwvc3ZnPg==);
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyMSAxNic+PHBhdGggZmlsbD0nI0ZGRicgZmlsbC1ydWxlPSdldmVub2RkJyBkPSdNOCAwaDVhOCA4IDAgMTEwIDE2SDhBOCA4IDAgMTE4IDB6bS0uMTM1IDEuOTM1YTYuMDY1IDYuMDY1IDAgMDAwIDEyLjEzaDUuMTJhNi4wNjUgNi4wNjUgMCAwMDAtMTIuMTNoLTUuMTJ6bS0xLjMzIDIuMzA0aDIuNDAxbDMuMTk5IDUuMTc1VjQuMjRoMi4zNDZ2Ny40OTVIMTIuMThMOC44NjQgNi41Mzd2NS4yMDFINi41M2wuMDA1LTcuNDk5eicvPjwvc3ZnPg==);
 }
 
-
 @media (max-width: 992px) {
-    .mainpage-card-area{
-        width: 25rem !important;
-    }
+  .mainpage-card-area {
+    width: 25rem !important;
+  }
 
-    .mainpage-card-area img{
-        height: 14rem !important;
-    }
+  .mainpage-card-area img {
+    height: 14rem !important;
+  }
+}
+/* 추가 */
 
+.mainpage-card-area img {
+  width: 100%;
+  height: fit-content;
+  object-fit: cover;
 }
