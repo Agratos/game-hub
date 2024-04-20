@@ -14,7 +14,7 @@ const TopGameCard = ({ game, allGameList, setAllGameList }) => {
   const dispatch = useDispatch();
   const handleBtn = (score) => {
     dispatch(countScoredGames());
-    if (score === 'great' || score === 'recommended') {
+    if (score === 'exceptional' || score === 'recommended') {
       dispatch(addFavGames({ game }));
     }
     const newAllGameList = allGameList.filter((item) => item.id !== game.id);
@@ -81,9 +81,9 @@ const TopGameCard = ({ game, allGameList, setAllGameList }) => {
         </h3>
         <div className='btn-list'>
           <div>
-            <button onClick={() => handleBtn('great')}>
+            <button onClick={() => handleBtn('exceptional')}>
               <FaRegGrinHearts />
-              great
+              exceptional
             </button>
           </div>
           <div>

@@ -34,6 +34,7 @@
   font-size: 20px;
   text-overflow: ellipsis;
   white-space: nowrap;
+  cursor: pointer;
 }
 .favCard .favGameInfo .gameName:hover {
   text-decoration: underline;
@@ -41,4 +42,24 @@
 .favCard .favGameInfo .category {
   margin-right: 10px;
   font-weight: bold;
+}
+.favCard .favGameInfo em {
+  font-style: normal;
+  margin-right: 10px;
+}
+
+@media (max-width: 992px) {
+  .favGamesWrap {
+    width: 273px;
+  }
+  .favGamesWrap .favCard {
+    margin: 0px 0 20px;
+    width: 100%;
+  }
+  .favGamesWrap .favCard .favGameImg {
+    height: 150px;
+  }
+  .favCard .favGameInfo .gameName {
+    font-size: 16px;
+  }
 }
