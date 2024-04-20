@@ -1,8 +1,17 @@
 @media screen and (max-width: 992px) {
   .sign-item {
     color: #000;
+    display: flex;
+    align-items: center;
+  }
+  .sign-item button {
+    color: #000;
   }
 }
+.signs-user-name {
+  display: none;
+}
+
 .sign-item:hover span {
   text-decoration: underline;
 }

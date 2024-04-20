@@ -12,7 +12,7 @@ const OrderByDropdown = ({ORDER_ARR}) => {
   }
 
   const goOrdering = (item) => {
-    navigate(`/?ordering=${item}`);
+    navigate(`?ordering=${item}`);
   }
 
 
