@@ -17,7 +17,7 @@ const HowItWorks = () => {
         <ul>
           <li>
             <FaRegGrinHearts />
-            <strong>Great</strong>
+            <strong>exceptional</strong>
             <p>It&apos;s either Knack 2 or some other masterpiece</p>
           </li>
           <li>
