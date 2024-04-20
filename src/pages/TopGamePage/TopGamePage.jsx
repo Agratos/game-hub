@@ -9,7 +9,8 @@ import './TopGamePage.style.css';
 import ShareLink from './component/ShareLink/ShareLink';
 import HowItWorks from './component/HowItWorks/HowItWorks';
 import FavoriteGames from './component/FavoriteGames/FavoriteGames';
-import { Spinner } from 'react-bootstrap';
+import LoadingSpinner from '../../commons/LoadingSpinner/LoadingSpinner';
+
 
 const TopGamePage = () => {
   const [allGameList, setAllGameList] = useState(null);
@@ -66,8 +67,8 @@ const TopGamePage = () => {
 
   if (isLoading) {
     return (
-      <div className='spinnerWrap'>
-        <Spinner />
+      <div>
+        <LoadingSpinner />
       </div>
     );
   }

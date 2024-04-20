@@ -9,6 +9,7 @@ import SearchPage from './pages/SearchPage/SearchPage';
 import TopGamePage from './pages/TopGamePage/TopGamePage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import HeaderLayout from './layouts/AppLayoout/HeaderLayout/HeaderLayout';
+import MyPage from './pages/MyPage/MyPage';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route index element={<MainPage />} />
           <Route path='detail/:id' element={<DetailPage />} />
           <Route path='search' element={<SearchPage />} />
+          <Route path='my-page' element={<MyPage />} />
         </Route>
         <Route element={<HeaderLayout />}>
           <Route path='/login' element={<LoginPage />} />
