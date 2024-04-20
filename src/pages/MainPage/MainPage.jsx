@@ -34,14 +34,17 @@ const MainPage = () => {
   const {data,isLoading ,isSuccess, isError, error} = useGameListPaginationQuery({page:page, ordering: query.get("ordering") ? query.get("ordering") : ORDER_ARR[0], platforms: query.get("parent_platforms") ? query.get("parent_platforms") : null});
   // isSuccess && console.log('여기는 메인 페이지 DATA : ',page,data);
 
-  if(isError){
-    <Button className="mb-5" onClick={() => handlePagination()}>Add List</Button>
-    console.log(error);
-  }
 
   const handlePagination = () => {
     setPage(page + 1);
   };
+
+  if(isError){
+    console.log(error);
+    <button className="mb-5 mainpage-reload-btn" onClick={() => handlePagination()}>Load more</button>
+  }
+
+
 
   useEffect(() => {
     // data 가 array인지 확인해야 스프레드 문법 사용 가능.
