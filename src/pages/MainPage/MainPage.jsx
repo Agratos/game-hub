@@ -31,10 +31,14 @@ const MainPage = () => {
 
   const buttonRef = useRef(null);
 
-  const {data,isLoading ,isSuccess, isError, error} = useGameListPaginationQuery({page:page, ordering: query.get("ordering") ? query.get("ordering") : ORDER_ARR[0]});
+  const { data, isLoading, isSuccess, isError, error } =
+    useGameListPaginationQuery({
+      page: page,
+      ordering: query.get('ordering') ? query.get('ordering') : ORDER_ARR[0],
+    });
   // isSuccess && console.log('여기는 메인 페이지 DATA : ',page,data);
 
-  if(isError){
+  if (isError) {
     console.log(error);
   }
 
@@ -52,12 +56,12 @@ const MainPage = () => {
       }
 
       setTimeout(() => {
-        console.log("btn set");
+        console.log('btn set');
         setIsViewBtn(true);
-      }, 1000)
+      }, 1000);
     }
 
-    if(!isSuccess){
+    if (!isSuccess) {
       setIsViewBtn(false);
     }
     // eslint-disable-next-line
@@ -72,22 +76,22 @@ const MainPage = () => {
       setIsDataList([]);
     }
     // eslint-disable-next-line
-  }, [query])
+  }, [query]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-          if (entries[0].isIntersecting) {
-            console.log("new load",page);
-            if(isSuccess){
-              setPage(page+1);
-            }
+        if (entries[0].isIntersecting) {
+          console.log('new load', page);
+          if (isSuccess) {
+            setPage(page + 1);
           }
+        }
       },
       {
         root: null, // 뷰포트를 root로 사용
         rootMargin: '0px',
-        threshold: 0.0 // 100% 요소가 보여질 때 트리거
+        threshold: 0.0, // 100% 요소가 보여질 때 트리거
       }
     );
 
@@ -97,7 +101,7 @@ const MainPage = () => {
 
     return () => {
       if (buttonRef.current) {
-      // eslint-disable-next-line
+        // eslint-disable-next-line
         observer.unobserve(buttonRef.current); // 컴포넌트가 언마운트될 때 관찰 중단
       }
     };
@@ -105,10 +109,23 @@ const MainPage = () => {
   }, [isViewBtn]);
 
   return (
-    <Container className='mainpage-area'>
+    <Container className='mainpage-area' style={{ marginTop: '32px' }}>
       <div>
-        <h1 className='fw-bold'>New and trending</h1>
-        <span>Based on player counts and release date</span>
+        <h1
+          style={{
+            fontSize: '64px',
+          }}
+          className='fw-bold'
+        >
+          New and trending
+        </h1>
+        <span
+          style={{
+            color: '#86868b',
+          }}
+        >
+          Based on player counts and release date
+        </span>
       </div>
       <div className='main-page-dropdown-area'>
         <OrderByDropdown ORDER_ARR={ORDER_ARR} />
@@ -122,8 +139,21 @@ const MainPage = () => {
             </Col>
           ))}
       </div>
-      {isLoading ? <LoadingSpinner /> :  isViewBtn && <Button ref={buttonRef} className="mb-5" onClick={() => handlePagination()}>Add List</Button>}
-    </Container>)
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        isViewBtn && (
+          <Button
+            ref={buttonRef}
+            className='mb-5'
+            onClick={() => handlePagination()}
+          >
+            Add List
+          </Button>
+        )
+      )}
+    </Container>
+  );
 };
 
 export default MainPage;

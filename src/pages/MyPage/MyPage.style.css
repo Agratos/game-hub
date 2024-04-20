@@ -22,12 +22,13 @@
   font-size: 21px;
   margin: 0;
   padding: 0;
+  color: #86868b;
 }
 .mypage-header-title button {
-  font-size: 12px;
+  font-size: 14px;
   background: none;
   border: none;
-  color: #2997ff;
+  color: rgb(41, 151, 255);
   margin: 0;
   padding: 0;
 }
@@ -46,14 +47,15 @@
 .mypage-overview {
   width: calc(100% - 200px);
   margin: auto;
-  padding: 60px 100px;
+  padding: 60px;
   color: #fff;
   background-color: #000;
-  border-radius: 18px;
+  border-radius: 36px;
 }
 .mypage-overview h2 {
   font-size: 32px;
   margin-bottom: 26px;
+  color: #86868b;
 }
 .mainpage-game-platforms-card {
   display: flex;
@@ -92,7 +94,7 @@
   }
   .mypage-overview {
     width: calc(100% - 20px);
-    padding: 60px 20px;
+    padding: 42px;
   }
 }
 .mypage-headline {

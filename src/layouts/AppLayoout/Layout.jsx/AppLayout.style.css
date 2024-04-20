@@ -1,5 +1,5 @@
 .applayout-wrapper {
-  background-color: #1d1d1f;
+  background-color: #101010;
 }
 .applayout-header {
   position: sticky;
@@ -33,7 +33,7 @@
   position: fixed;
   display: block;
   top: 0;
-  background-color: #1d1d1f67;
+  background-color: #10101067;
   -webkit-backdrop-filter: blur(20px) saturate(1.8);
   backdrop-filter: blur(20px) saturate(1.8);
   z-index: 999;

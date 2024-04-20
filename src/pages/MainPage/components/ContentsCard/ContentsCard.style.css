@@ -1,7 +1,11 @@
+/* 101010  text = #86868b  box = #242426*/
+/* rgb(41,151,255) */
 .mainpage-card-area {
   color: white;
   border-color: #151515;
-  background-color: #202020;
+  /* background-color: #202020; */
+  background-color: #242426;
+
   transition: scale 0.2s ease; /* 색상 변경에 대한 전환 효과 설정 */
   /* 추가코드 */
   width: 100% !important;
@@ -10,7 +14,7 @@
 .mainpage-card-area:hover {
   /* position: absolute; */
   z-index: 2;
-  scale: 105%;
+  scale: 103%;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
@@ -30,18 +34,22 @@
   width: 100%;
 
   margin: -10px;
-  margin-top: 5px;
-  padding: 10px;
+  /* margin-top: 2px; */
+  padding: 18px;
 
-  background-color: #202020;
+  /* background-color: #202020; */
+  background-color: #242426;
+
   position: absolute;
   z-index: 2;
 
   height: fit-content;
-  box-shadow: 2px 4px 5px -1px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 4px 10px -1px rgba(0, 0, 0, 0.6);
 
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+
+  font-size: 12px;
 }
 
 .mainpage-card-area:hover .mainpage-card-overlay .mainpage-card-text-box {
@@ -67,7 +75,7 @@
 
 .platform-box {
   height: fit-content;
-  padding: 10px;
+  padding: 16px 18px;
 
   display: flex;
   align-items: center;
@@ -85,6 +93,9 @@
   font-size: 1.2rem;
   font-weight: bold;
   transition: opacity 0.2s ease; /* 색상 변경에 대한 전환 효과 설정 */
+  padding: 0 8px;
+  padding-bottom: 8px;
+  width: 100% !important;
 }
 .mainpage-card-title > a:hover {
   opacity: 0.6;
