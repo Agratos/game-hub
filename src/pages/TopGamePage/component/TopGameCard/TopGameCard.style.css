@@ -16,6 +16,7 @@
 .swiper-slide.swiper-slide-active::after {
   display: none;
 }
+
 .top-game-card {
   display: flex;
   height: 365px;
