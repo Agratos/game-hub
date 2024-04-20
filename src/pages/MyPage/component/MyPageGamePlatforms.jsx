@@ -1,9 +1,9 @@
 import React from 'react';
 
-const MainPageGamePlatforms = () => {
+const MyPageGamePlatforms = () => {
   return (
     <>
-      <h2>Game platforms</h2>
+      <h2 className='mypage-headline'>Game platforms</h2>
       <div className='mainpage-game-platforms-card'>
         <div style={{ width: '50%' }}>
           <span>
@@ -82,4 +82,4 @@ const MainPageGamePlatforms = () => {
   );
 };
 
-export default MainPageGamePlatforms;
+export default MyPageGamePlatforms;
