@@ -1,8 +1,9 @@
 import React from 'react';
 import './MyPage.style.css';
-import MainPageHeader from './component/MainPageHeader';
-import MainPageGamePlatforms from './component/MainPageGamePlatforms';
+import MyPageHeader from './component/MyPageHeader';
+import MyPageGamePlatforms from './component/MyPageGamePlatforms';
 import { useSelector } from 'react-redux';
+import MyPageMyGames from './component/MyPageMyGames';
 
 const MyPage = () => {
   const { id } = useSelector((state) => state.auth);
@@ -11,11 +12,14 @@ const MyPage = () => {
     <div className='mypage-container'>
       <div className='mypage-wrapper'>
         <section className='mypage-header'>
-          <MainPageHeader userName={id} />
+          <MyPageHeader userName={id} />
         </section>
         <section className='mypage-overview'>
-          <MainPageGamePlatforms />
-          {/* 내용추가 */}
+          <MyPageGamePlatforms />
+
+          {/* 데이터 props로 보내긔 */}
+          <MyPageMyGames headline='Favorites games' />
+          <MyPageMyGames headline='Liked games' />
         </section>
       </div>
     </div>

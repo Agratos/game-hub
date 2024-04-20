@@ -49,7 +49,7 @@
   padding: 60px 100px;
   color: #fff;
   background-color: #000;
-  /* border-radius: 18px; */
+  border-radius: 18px;
 }
 .mypage-overview h2 {
   font-size: 32px;
@@ -94,4 +94,8 @@
     width: calc(100% - 20px);
     padding: 60px 20px;
   }
+}
+.mypage-headline {
+  font-size: 32px;
+  font-weight: normal;
 }
