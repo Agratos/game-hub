@@ -10,7 +10,13 @@ import { Link } from 'react-router-dom';
 import { RiComputerLine, RiPlaystationLine, RiXboxFill } from 'react-icons/ri';
 import { MdLaptopMac, MdComputer } from 'react-icons/md';
 
-const TopGameCard = ({ game, allGameList, setAllGameList }) => {
+const TopGameCard = ({
+  game,
+  allGameList,
+  setAllGameList,
+  setCountToFetch,
+  countToFetch,
+}) => {
   const dispatch = useDispatch();
   const handleBtn = (score) => {
     dispatch(countScoredGames());
@@ -19,6 +25,7 @@ const TopGameCard = ({ game, allGameList, setAllGameList }) => {
     }
     const newAllGameList = allGameList.filter((item) => item.id !== game.id);
     setAllGameList(newAllGameList);
+    setCountToFetch(countToFetch + 1);
   };
   return (
     <div className='top-game-card'>
