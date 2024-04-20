@@ -9,6 +9,7 @@ import './TopGamePage.style.css';
 import ShareLink from './component/ShareLink/ShareLink';
 import HowItWorks from './component/HowItWorks/HowItWorks';
 import FavoriteGames from './component/FavoriteGames/FavoriteGames';
+import { Spinner } from 'react-bootstrap';
 
 const TopGamePage = () => {
   const [allGameList, setAllGameList] = useState(null);
@@ -20,21 +21,40 @@ const TopGamePage = () => {
   const getTopGameList = async () => {
     setIsLoading(true);
     try {
-      for (let i = 1; i <= 4; i++) {
-        const res = await axios.get('https://api.rawg.io/api/games', {
-          params: {
-            page: i,
-            page_size: 25,
-            key: process.env.REACT_APP_GAME_API,
-          },
-        });
-        topGameList = [...topGameList, ...res.data.results];
-      }
+      const res = await axios.get('https://api.rawg.io/api/games', {
+        params: {
+          page: 1,
+          page_size: 20,
+          key: process.env.REACT_APP_GAME_API,
+        },
+      });
+      topGameList = [...res.data.results];
     } catch (error) {
       console.log(error);
     }
     setIsLoading(false);
     setAllGameList(topGameList);
+  };
+
+  const slideChange = async (e) => {
+    const currentSlide = e.activeIndex;
+    for (let i = 1; i <= 4; i++) {
+      if (currentSlide === 20 * i - 3) {
+        try {
+          const res = await axios.get('https://api.rawg.io/api/games', {
+            params: {
+              page: i + 1,
+              page_size: 20,
+              key: process.env.REACT_APP_GAME_API,
+            },
+          });
+          topGameList = [...allGameList, ...res.data.results];
+        } catch (e) {
+          console.log(e);
+        }
+        setAllGameList(topGameList);
+      }
+    }
   };
 
   useEffect(() => {
@@ -45,7 +65,11 @@ const TopGamePage = () => {
   }, [scoredGames]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className='spinnerWrap'>
+        <Spinner />
+      </div>
+    );
   }
   return (
     <div className='topGamePageWrap'>
@@ -54,7 +78,12 @@ const TopGamePage = () => {
         <div className='progressBar' style={{ height: barHeight }}></div>
         You rated <span>{scoredGames}</span> out of 100 Games
       </div>
-      <Swiper centeredSlides={true} slidesPerView={'auto'} spaceBetween={20}>
+      <Swiper
+        centeredSlides={true}
+        slidesPerView={'auto'}
+        spaceBetween={20}
+        onSlideChange={slideChange}
+      >
         {allGameList?.map((game, index) => (
           <SwiperSlide key={index}>
             <TopGameCard

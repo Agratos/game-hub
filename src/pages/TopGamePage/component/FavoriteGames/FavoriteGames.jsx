@@ -1,9 +1,9 @@
 import React from 'react';
 import './FavoriteGames.style.css';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const FavoriteGames = ({ favGamesList }) => {
-  console.log('aa', favGamesList);
+  const navigate = useNavigate();
   return (
     <div className='favGamesWrap'>
       <h2>What You Liked :</h2>
@@ -15,8 +15,19 @@ const FavoriteGames = ({ favGamesList }) => {
               className='favGameImg'
             ></div>
             <div className='favGameInfo'>
-              <div className='gameName'>
-                <Link to={`/detail/${game.id}`}>{game.name}</Link>
+              <div
+                className='gameName'
+                role='presentation'
+                onClick={() => {
+                  navigate(`/detail/${game.id}`);
+                  window.scrollTo(0, 0);
+                }}
+                onKeyDown={() => {
+                  navigate(`/detail/${game.id}`);
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {game.name}
               </div>
               <div>
                 <span className='category'>genres</span>
