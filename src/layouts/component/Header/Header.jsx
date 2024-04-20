@@ -61,7 +61,6 @@ const Header = () => {
       <Link className='header-logo-link' to='/'>
         <img src={logoImg} alt='header-logo' />
       </Link>
-
       <form
         className='header-search-box'
         onSubmit={(e) => searchFormSubmit(e)}

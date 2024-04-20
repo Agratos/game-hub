@@ -1,5 +1,7 @@
 .applayout-wrapper {
   background-color: #1d1d1f;
+  max-width: 1920px;
+  margin: auto;
 }
 .applayout-header {
   position: sticky;
