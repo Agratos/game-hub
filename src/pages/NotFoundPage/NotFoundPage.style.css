@@ -1,0 +1,44 @@
+.notfound-text {
+  color: #fff;
+  font-weight: 600;
+  font-size: 48px;
+  text-align: center;
+
+  margin-top: 20px;
+  display: block;
+}
+.notfound-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #1d1d1f;
+}
+.notfound-bt {
+  background-color: #fff;
+  font-size: 23px;
+  border: none;
+  border-radius: 100rem;
+  padding: 6px 20px;
+  margin: auto;
+  font-weight: bold;
+  margin: 0;
+  width: 500px;
+}
+.notfound-bt span::after {
+  content: '>';
+  margin-left: 8px;
+  font-weight: normal;
+}
+.notfoun-box {
+  height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+}
+.notfound-icon {
+  color: #6e6e73;
+  width: 100px;
+  height: auto;
+  margin-top: -200px;
+}

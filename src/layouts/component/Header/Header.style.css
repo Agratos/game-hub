@@ -1,0 +1,139 @@
+.header-container {
+  background-color: #1d1d1fe3;
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 0 30px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
+  gap: 50px;
+}
+.header-logo-link {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.header-logo-link img {
+  height: 25px;
+}
+.header-search-box {
+  display: flex;
+  align-items: center;
+  background-color: #7676803d;
+  border-radius: 10px;
+  box-sizing: border-box;
+  height: 35px;
+  transition: all 0.2s;
+  width: calc(100% - 450px);
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+.header-search-icon {
+  width: 25px;
+  height: 25px;
+  padding: 10px;
+  box-sizing: content-box;
+  color: #ebebf599;
+}
+.header-search-box input {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  color: #ebebf599;
+}
+.header-search-remove {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.header-TiDelete {
+  height: 25px;
+  width: 25px;
+  color: #94949499;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.sign-box {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  gap: 18px;
+  align-items: center;
+}
+
+.header-sign-span {
+  font-size: 14px;
+
+  white-space: nowrap;
+}
+.sign-box li:hover {
+  text-decoration: underline;
+}
+.m-header-menubar {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+}
+.m-header-hbg {
+  width: 30px;
+  height: 30px;
+}
+
+@media screen and (max-width: 992px) {
+  .header-container {
+    background-color: #1d1d1fe3;
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 0 30px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
+    gap: 50px;
+  }
+  .sign-box {
+    display: none;
+  }
+  .m-header-menubar {
+    display: block;
+  }
+  .header-search-box {
+    width: 100%;
+    position: relative;
+  }
+  .header-container {
+    padding: 0 10px;
+    gap: 20px;
+  }
+}
+.m-sign-box {
+  position: absolute;
+  display: flex;
+  top: 100px;
+  right: 0;
+  z-index: 999;
+  color: #1d1d1fe3;
+}
