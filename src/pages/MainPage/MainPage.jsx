@@ -2,7 +2,7 @@ import './MainPage.style.css';
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useGameListPaginationQuery } from '../../hooks/apis/useGameListPagination';
-import { Button, Col, Container } from 'react-bootstrap';
+import { Col, Container } from 'react-bootstrap';
 import ContentsCard from './components/ContentsCard/ContentsCard';
 import FilterPlatfomrsDropdown from './components/FilterPlatformsDropdown/FilterPlatfomrsDropdown';
 import OrderByDropdown from './components/OrderByDropdown/OrderByDropdown';
