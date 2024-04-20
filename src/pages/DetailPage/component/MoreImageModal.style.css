@@ -1,0 +1,98 @@
+.detail-modal-bg{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.detail-modal-close-btn-area{
+  display: flex;
+  justify-content: end;
+  padding: 20px;
+  cursor: pointer;
+  color: gray;
+  font-size: 50px;
+}
+
+.detail-modal-close-btn-area:hover{
+  transform: scale(1.1);
+  color: white;
+  transition: all 0.3s;
+}
+
+.detail-modal-selected-image-area{
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  position: relative;
+
+}
+.detail-modal-selected-image{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.detail-modal-paging-btns{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  display: flex;
+}
+
+.detail-modal-paging-btns button{
+  background: transparent;
+  border: none;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  font-size: 80px;
+  color: white;
+}
+
+.detail-modal-paging-btns button:hover{
+  transform: scale(1.02);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.detail-modal-paging-btns button:first-child{
+ justify-content: start;
+}
+.detail-modal-paging-btns button:last-child{
+ justify-content: end;
+}
+
+
+@media (max-width : 991px){
+  .detail-modal-selected-image-area{
+    width: 90%;
+    height: 30%;
+  }
+
+  .detail-modal-paging-btns button{
+    font-size: 40px;
+  }
+  .detail-modal-paging-btns button:hover{
+    transform: scale(1.1);
+  }
+}

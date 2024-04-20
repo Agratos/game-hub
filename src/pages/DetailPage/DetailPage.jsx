@@ -1,5 +1,9 @@
+<<<<<<< Updated upstream
 import React, { useState } from 'react';
 // import { data } from './data';
+=======
+import React, { useEffect, useState } from 'react';
+>>>>>>> Stashed changes
 import './DetailPage.style.css';
 import { useGameScreenShotsQuery } from '../../hooks/apis/useGameScreenShots';
 import { Button, Spinner } from 'react-bootstrap';
@@ -17,8 +21,6 @@ const DetailPage = () => {
     id,
   });
   console.log('디테일데이터', detailData);
-  // const detailData = data;
-  //위 두개 중 하나만 쓰기
 
   const [viewAllAbout, setViewAllAbout] = useState(false);
   const { data: trailerData, isLoading: trailerLoading } = useGameTrailerQuery({
@@ -165,7 +167,12 @@ const DetailPage = () => {
       </div>
     );
   } else {
-    return <Spinner />;
+    return (
+      <div className='detail-spinner-bg'>
+        <h1>Loading...</h1>
+        <Spinner />
+      </div>
+    );
   }
 };
 

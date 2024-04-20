@@ -132,6 +132,18 @@ p{
   background-color: white;
 }
 
+.detail-spinner-bg{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 100px;
+}
+
 /* 모바일화면 */
 @media (max-width : 991px){
   
