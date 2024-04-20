@@ -1,0 +1,83 @@
+.mypage-container {
+  width: 100%;
+}
+.mypage-wrapper {
+}
+.mypage-header {
+  width: 100%;
+  height: fit-content;
+  color: #fff;
+  padding: 0px 100px 30px;
+}
+.mypage-header-title {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #999;
+  margin-bottom: 59px;
+  height: 52px;
+  align-items: center;
+}
+.mypage-header-title h3 {
+  height: fit-content;
+  font-size: 21px;
+  margin: 0;
+  padding: 0;
+}
+.mypage-header-title button {
+  font-size: 12px;
+  background: none;
+  border: none;
+  color: #2997ff;
+  margin: 0;
+  padding: 0;
+}
+.mypage-header-title button:hover span {
+  text-decoration: underline;
+}
+.mypage-header-title button::after {
+  content: '>';
+  margin-left: 4px;
+}
+.mypage-header-user-name {
+}
+.mypage-header-user-name h2 {
+  font-size: 32px;
+}
+.mypage-overview {
+  width: calc(100% - 200px);
+  margin: auto;
+  padding: 60px 100px;
+  color: #fff;
+  background-color: #000;
+  /* border-radius: 18px; */
+}
+.mypage-overview h2 {
+  font-size: 32px;
+  margin-bottom: 26px;
+}
+.mainpage-game-platforms-card {
+  display: flex;
+  overflow: hidden;
+  border-radius: 8px;
+  height: 80px;
+  align-items: end;
+  margin-bottom: 5px;
+}
+.mainpage-game-platforms-card div {
+  height: 80px;
+}
+.mainpage-game-platforms-card div span svg {
+  margin-top: 7px;
+}
+.mainpage-game-platforms-card div:nth-child(1) {
+  background-image: linear-gradient(rgb(100, 155, 255), rgb(67, 84, 186));
+}
+.mainpage-game-platforms-card div:nth-child(2) {
+  background-image: linear-gradient(rgb(67, 67, 67), rgb(0, 0, 0));
+}
+.mainpage-game-platforms-card div:nth-child(3) {
+  background-image: linear-gradient(rgb(233, 239, 245), rgb(167, 167, 167));
+}
+.mainpage-game-platforms-card div:nth-child(4) {
+  background-image: linear-gradient(rgb(16, 183, 217), rgb(0, 114, 246));
+}

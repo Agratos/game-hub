@@ -8,8 +8,7 @@ import { IoPersonCircleOutline } from 'react-icons/io5';
 
 const Signs = () => {
   const dispatch = useDispatch();
-  const { id, profileImage, authenticate } = useSelector((state) => state.auth);
-  console.log('13123123123', id, profileImage, authenticate);
+  const { profileImage, authenticate } = useSelector((state) => state.auth);
 
   return (
     <>
@@ -24,7 +23,7 @@ const Signs = () => {
             </button>
           </li>
           <li className='sign-item'>
-            <Link to='/mypage'>
+            <Link to='/my-page'>
               <div className='Sign-profile'>
                 {profileImage === null ? (
                   <IoPersonCircleOutline className='sign-default-img' />

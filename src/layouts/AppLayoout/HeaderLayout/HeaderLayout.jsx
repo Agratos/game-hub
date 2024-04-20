@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../../component/Header/Header';
 import './HeaderLayout.style.css';
+
 // import { useSelector } from 'react-redux';
 
 const HeaderLayout = () => {
