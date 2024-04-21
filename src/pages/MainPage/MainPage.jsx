@@ -47,12 +47,6 @@ const MainPage = () => {
 
   if (isError) {
     console.log(error);
-    <button
-      className='mb-5 mainpage-reload-btn'
-      onClick={() => handlePagination()}
-    >
-      Load more
-    </button>;
   }
 
   useEffect(() => {
@@ -65,7 +59,7 @@ const MainPage = () => {
       }
 
       setTimeout(() => {
-        console.log('btn set');
+        // console.log('btn set');
         setIsViewBtn(true);
       }, 1000);
     }
@@ -91,7 +85,7 @@ const MainPage = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          console.log('new load', page);
+          // console.log('new load', page);
           if (isSuccess) {
             setPage(page + 1);
           }
@@ -133,7 +127,7 @@ const MainPage = () => {
         <OrderByDropdown ORDER_ARR={ORDER_ARR} />
         <FilterPlatfomrsDropdown ORDER_ARR={ORDER_ARR} />
       </div>
-      <div className='mainpage-card-contents-area mb-3 '>
+      <div className='mainpage-card-contents-area mb-5 '>
         {isDataList?.length !== 0 &&
           isDataList?.map((item, index) => (
             <Col className='mainpage-card-contents-box' key={index}>
@@ -154,6 +148,14 @@ const MainPage = () => {
               Load more
             </button>
           )
+        )}
+        {isError && (
+          <button
+            className='mb-5 mainpage-reload-btn'
+            onClick={() => handlePagination()}
+          >
+            Load more
+          </button>
         )}
       </div>
     </Container>

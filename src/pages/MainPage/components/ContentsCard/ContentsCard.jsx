@@ -5,7 +5,7 @@ import './ContentsCard.style.css';
 import React, { useState } from 'react';
 import { PLATFORMS } from '../../../../constants/platformsData';
 
-const exceptContents = [1081, 50];
+const exceptContents = [50, 1081, 1131];
 
 const ContentsCard = ({ item }) => {
   // 불러온 목록중 platforms 탐색 함수
@@ -23,7 +23,6 @@ const ContentsCard = ({ item }) => {
   // }
 
   const [isImgList, setIsImgList] = useState(false);
-
   const handleImage = () => {
     // console.log(item?.tags.filter((el) => exceptContents.includes(el.id)).length === 0 && item?.background_image);
     return (
@@ -109,14 +108,10 @@ const ContentsCard = ({ item }) => {
               ))}
             </div>
           </div>
-          {/* <div className="mainpage-card-text-box" style={{border:"none"}}>
-                Chart:
-                <span>ddd</span>
-              </div> */}
-        </div>
-        <div className='mainpage-card-text-box' style={{ border: 'none' }}>
-          Chart:
-          <span>ddd</span>
+          <div className='mainpage-card-text-box' style={{ border: 'none' }}>
+            Rating:
+            <span>{item?.rating} / 5</span>
+          </div>
         </div>
       </figcaption>
     </figure>

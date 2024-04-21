@@ -56,10 +56,10 @@
   }
 }
 /* 추가코드 */
-.mainpage-card-contents-box {
+/* .mainpage-card-contents-box {
   display: flex;
   justify-content: center;
-}
+} */
 .mainpage-card-contents-area {
   column-width: 300px;
   column-gap: 23px;
