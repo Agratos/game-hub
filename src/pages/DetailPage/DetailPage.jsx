@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './DetailPage.style.css';
-import { Button, Spinner } from 'react-bootstrap';
+// import { Button, Spinner } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { IoAddCircle } from 'react-icons/io5';
 import { FaBan, FaMeh, FaRegGrinHearts, FaRegThumbsUp } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
@@ -9,6 +10,7 @@ import { useGameTrailerQuery } from '../../hooks/apis/useGameTrailer';
 import { useGameDetailQuery } from '../../hooks/apis/useGameDetail.js';
 import MoreImageModal from './component/MoreImageModal.js';
 import '../MainPage/components/ContentsCard/ContentsCard.style.css';
+import LoadingSpinner from '../../commons/LoadingSpinner/LoadingSpinner';
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -256,8 +258,9 @@ const DetailPage = () => {
   } else {
     return (
       <div className='detail-spinner-bg'>
-        <h1>Loading...</h1>
-        <Spinner />
+        {/* <h1>Loading...</h1> */}
+        {/* <Spinner /> */}
+        <LoadingSpinner />
       </div>
     );
   }
