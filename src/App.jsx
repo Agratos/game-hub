@@ -13,7 +13,6 @@ import HeaderLayout from './layouts/AppLayoout/HeaderLayout/HeaderLayout';
 import MyPage from './pages/MyPage/MyPage';
 
 const App = () => {
-  console.log('process: ', process.env.REACT_APP_GAME_API);
   return (
     <div
       style={{
