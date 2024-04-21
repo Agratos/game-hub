@@ -11,6 +11,7 @@ import TopGamePage from './pages/TopGamePage/TopGamePage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import HeaderLayout from './layouts/AppLayoout/HeaderLayout/HeaderLayout';
 import MyPage from './pages/MyPage/MyPage';
+import GenresPage from './pages/GenresPage/GenresPage';
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           <Route path='detail/:id' element={<DetailPage />} />
           <Route path='search' element={<SearchPage />} />
           <Route path='my-page' element={<MyPage />} />
+          <Route path='genres' element={<GenresPage />} />
         </Route>
         <Route element={<HeaderLayout />}>
           <Route path='/login' element={<LoginPage />} />
