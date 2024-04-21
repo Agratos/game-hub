@@ -105,7 +105,17 @@ const TopGamePage = () => {
       </Swiper>
       <ShareLink />
       <HowItWorks />
-      <FavoriteGames favGamesList={favGamesList} />
+      <div
+        className='fv-wrapper'
+        style={{
+          width: '798px',
+          margin: 'auto',
+          border: '2px solid hsla(0, 0%, 100%, 0.1)',
+        }}
+      >
+        <h2>What You Liked :</h2>
+        <FavoriteGames favGamesList={favGamesList} />
+      </div>
     </div>
   );
 };

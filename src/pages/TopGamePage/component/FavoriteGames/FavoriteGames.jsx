@@ -6,14 +6,15 @@ const FavoriteGames = ({ favGamesList }) => {
   const navigate = useNavigate();
   return (
     <div className='favGamesWrap'>
-      <h2>What You Liked :</h2>
       <div className='flexBox'>
         {favGamesList?.map((game, index) => (
           <div key={index} className='favCard'>
             <div
-              style={{ backgroundImage: `url(${game.background_image})` }}
+              // style={{ backgroundImage: `url(${game.background_image})` }}
               className='favGameImg'
-            ></div>
+            >
+              <img src={game.background_image} alt='game img' />
+            </div>
             <div className='favGameInfo'>
               <div
                 className='gameName'

@@ -1,10 +1,9 @@
 .favGamesWrap {
   padding: 24px 24px 4px;
-  margin: 0 auto 100px;
   width: 798px;
   color: #fff;
-  border: 2px solid hsla(0, 0%, 100%, 0.1);
   box-sizing: border-box;
+  width: 100%;
 }
 .favGamesWrap .flexBox {
   display: flex;
@@ -19,9 +18,12 @@
 }
 .favGamesWrap .favCard .favGameImg {
   width: 100%;
-  height: 200px;
+  height: fit-content;
   background-position: center;
   background-size: cover;
+}
+.favGamesWrap .favCard .favGameImg img {
+  width: 100%;
 }
 .favGamesWrap .favCard .favGameInfo {
   width: 100%;
