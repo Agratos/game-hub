@@ -1,27 +1,39 @@
 import React from 'react';
 import './SideBar.style.css';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import Signs from '../Header/Signs/Signs';
 import Signs from '../Signs/Signs';
 import { IoCloseCircleSharp } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import { hamburgerActions } from '../../../store/slice/hamburgerMenuOpen';
+import { Link } from 'react-router-dom';
 
 const SideBar = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  // const sideBarList = [
+  //   'Home',
+  //   'Reviews',
+  //   'New Releases',
+  //   'top',
+  //   'All Games',
+  //   'Browse',
+  //   'Platforms',
+  //   'Genres',
+  // ];
   const sideBarList = [
-    'Home',
-    'Reviews',
-    'New Releases',
-    'top',
-    'All Games',
-    'Browse',
-    'Platforms',
-    'Genres',
+    { name: 'Home', link: '/' },
+    { name: 'Reviews', link: '/' },
+    { name: 'New Releases', link: '/' },
+    { name: 'top', link: '/' },
+    { name: 'All Games', link: '/' },
+    { name: 'Browse', link: '/' },
+    { name: 'Platforms', link: '/' },
+    { name: 'Genres', link: '/' },
   ];
   console.log(sideBarList);
   return (
-    <div className='slidebar-container'>
+    <div className='sidebar-container'>
       <ul className='sidebar-signs'>
         <Signs />
       </ul>
@@ -31,13 +43,18 @@ const SideBar = () => {
       >
         <IoCloseCircleSharp className='sidebar-m-menu-close-ic' />
       </button>
-      <ul className='slidebar-list'>
+      <ul className='sidebar-list'>
         <li>
-          <Link to='/top-game'>Rate top games</Link>
+          <button
+            className='side-topgame-link-item'
+            onClick={() => navigate('/top-game')}
+          >
+            Rate top games
+          </button>
         </li>
         {sideBarList.map((item, index) => (
-          <li className='slidebar-list-item' key={index}>
-            {item}
+          <li className='sidebar-list-item' key={index}>
+            <Link to={item.link}>{item.name}</Link>
           </li>
         ))}
       </ul>

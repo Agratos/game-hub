@@ -72,7 +72,6 @@ const MyPageGamePlatforms = () => {
       <p
         style={{
           fontSize: '14px',
-          color: '#6e6e73',
         }}
       >
         Be proud of your platform preferences. For better accuracy choose the

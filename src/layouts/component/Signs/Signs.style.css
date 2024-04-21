@@ -5,7 +5,7 @@
     align-items: center;
   }
   .sign-item button {
-    color: #000;
+    background-color: #000;
   }
 }
 .signs-user-name {
@@ -24,15 +24,21 @@
   width: 32px;
   border-radius: 100rem;
 }
+
+.header-sign-bt {
+  font-size: 14px;
+  padding: 5px 20px;
+  border: none;
+  background-color: #242426;
+  border-radius: 4px;
+  color: #fff;
+
+  font-weight: 400;
+}
+.header-sign-bt:hover {
+  opacity: 0.9;
+}
 .sign-logout-bt {
-  background: none;
   border: none;
   color: #fff;
-  font-size: 16px;
-}
-.sign-logout-bt:hover {
-  text-decoration: underline;
-}
-.header-sign-span {
-  font-size: 16px;
 }

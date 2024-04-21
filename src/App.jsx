@@ -14,7 +14,11 @@ import MyPage from './pages/MyPage/MyPage';
 
 const App = () => {
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: '#101010',
+      }}
+    >
       {/* <Routes>
         <Route path='/' element={<AppLayout />}>
           <Route index element={<MainPage />} />

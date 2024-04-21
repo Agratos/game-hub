@@ -7,7 +7,9 @@
   gap: 20px;
   max-width: 100%;
 }
-
+.Mainpage-title {
+  font-size: 64px;
+}
 .main-page-dropdown-area {
   display: flex;
   gap: 0.4rem;
@@ -21,19 +23,21 @@
 
 .mainpage-card-contents-area figure {
   position: relative;
-  border-radius: 20px;
+  border-radius: 18px;
   display: inline-block;
   margin: 0;
-  margin-bottom: 15px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  /* margin-bottom: 15px; */
+  margin-bottom: 23px;
+  /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); */
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.6);
 
   min-height: 10rem;
 }
 
 .mainpage-card-contents-area figure img {
   width: 100%;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
 }
 
 .mainpage-card-contents-area figure figcaption {
@@ -47,15 +51,16 @@
   .mainpage-card-contents-area {
     column-width: 350px;
   }
+  .Mainpage-title {
+    font-size: 42px;
+  }
 }
 /* 추가코드 */
 .mainpage-card-contents-box {
-  /* background-color: red; */
   display: flex;
   justify-content: center;
 }
 .mainpage-card-contents-area {
   column-width: 300px;
-  column-gap: 15px;
-  /* background-color: rosybrown; */
+  column-gap: 23px;
 }

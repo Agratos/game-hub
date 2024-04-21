@@ -71,7 +71,7 @@ const TopGamePage = () => {
 
   if (isLoading) {
     return (
-      <div>
+      <div style={{ width: '100%', height: 'calc(100vh - 64px)' }}>
         <LoadingSpinner />
       </div>
     );

@@ -1,5 +1,5 @@
 .header-container {
-  background-color: #1d1d1fe3;
+  background-color: #101010e3;
   backdrop-filter: blur(20px) saturate(1.8);
   -webkit-backdrop-filter: blur(20px) saturate(1.8);
   height: 64px;
@@ -101,7 +101,6 @@ a {
 
 @media screen and (max-width: 992px) {
   .header-container {
-    background-color: #1d1d1fe3;
     backdrop-filter: blur(20px) saturate(1.8);
     -webkit-backdrop-filter: blur(20px) saturate(1.8);
     height: 64px;
@@ -135,5 +134,5 @@ a {
   top: 100px;
   right: 0;
   z-index: 999;
-  color: #1d1d1fe3;
+  color: #101010e3;
 }
