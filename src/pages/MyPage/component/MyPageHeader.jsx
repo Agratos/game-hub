@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { authenicateActions } from '../../../store/slice/authenicateSlice';
 
-const MainPageHeader = ({ userName }) => {
+const MyPageHeader = ({ userName }) => {
   const dispatch = useDispatch();
   return (
     <>
@@ -19,4 +19,4 @@ const MainPageHeader = ({ userName }) => {
   );
 };
 
-export default MainPageHeader;
+export default MyPageHeader;

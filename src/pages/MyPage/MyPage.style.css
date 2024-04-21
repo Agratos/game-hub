@@ -49,7 +49,7 @@
   padding: 60px 100px;
   color: #fff;
   background-color: #000;
-  /* border-radius: 18px; */
+  border-radius: 18px;
 }
 .mypage-overview h2 {
   font-size: 32px;
@@ -80,4 +80,22 @@
 }
 .mainpage-game-platforms-card div:nth-child(4) {
   background-image: linear-gradient(rgb(16, 183, 217), rgb(0, 114, 246));
+}
+
+@media screen and (max-width: 992px) {
+  .mypage-header {
+    width: calc(100% - 20px);
+    margin: auto;
+    height: fit-content;
+    color: #fff;
+    padding: 0px 0px 30px;
+  }
+  .mypage-overview {
+    width: calc(100% - 20px);
+    padding: 60px 20px;
+  }
+}
+.mypage-headline {
+  font-size: 32px;
+  font-weight: normal;
 }

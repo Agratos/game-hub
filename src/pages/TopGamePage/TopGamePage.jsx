@@ -11,11 +11,11 @@ import HowItWorks from './component/HowItWorks/HowItWorks';
 import FavoriteGames from './component/FavoriteGames/FavoriteGames';
 import LoadingSpinner from '../../commons/LoadingSpinner/LoadingSpinner';
 
-
 const TopGamePage = () => {
   const [allGameList, setAllGameList] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [barHeight, setBarHeight] = useState(0);
+  const [countToFetch, setCountToFetch] = useState(0);
   const favGamesList = useSelector((state) => state.score.favGames);
   const scoredGames = useSelector((state) => state.score.scoredGames);
   let topGameList = [];
@@ -36,25 +36,9 @@ const TopGamePage = () => {
     setIsLoading(false);
     setAllGameList(topGameList);
   };
-
-  const slideChange = async (e) => {
-    const currentSlide = e.activeIndex;
-    for (let i = 1; i <= 4; i++) {
-      if (currentSlide === 20 * i - 3) {
-        try {
-          const res = await axios.get('https://api.rawg.io/api/games', {
-            params: {
-              page: i + 1,
-              page_size: 20,
-              key: process.env.REACT_APP_GAME_API,
-            },
-          });
-          topGameList = [...allGameList, ...res.data.results];
-        } catch (e) {
-          console.log(e);
-        }
-        setAllGameList(topGameList);
-      }
+  const slideChange = (e) => {
+    if (e.swipeDirection === 'next') {
+      setCountToFetch(countToFetch + 1);
     }
   };
 
@@ -63,7 +47,27 @@ const TopGamePage = () => {
   }, []);
   useEffect(() => {
     setBarHeight(0.15 * scoredGames);
-  }, [scoredGames]);
+    const fetchMoreData = async () => {
+      for (let i = 1; i <= 4; i++) {
+        if (countToFetch === 20 * i - 10) {
+          try {
+            const res = await axios.get('https://api.rawg.io/api/games', {
+              params: {
+                page: i + 1,
+                page_size: 20,
+                key: process.env.REACT_APP_GAME_API,
+              },
+            });
+            topGameList = [...allGameList, ...res.data.results];
+            setAllGameList(topGameList);
+          } catch (error) {
+            console.log(error);
+          }
+        }
+      }
+    };
+    fetchMoreData();
+  }, [scoredGames, countToFetch]);
 
   if (isLoading) {
     return (
@@ -79,6 +83,7 @@ const TopGamePage = () => {
         <div className='progressBar' style={{ height: barHeight }}></div>
         You rated <span>{scoredGames}</span> out of 100 Games
       </div>
+
       <Swiper
         centeredSlides={true}
         slidesPerView={'auto'}
@@ -92,6 +97,8 @@ const TopGamePage = () => {
               allGameList={allGameList}
               setAllGameList={setAllGameList}
               setBarHeight={setBarHeight}
+              setCountToFetch={setCountToFetch}
+              countToFetch={countToFetch}
             />
           </SwiperSlide>
         ))}

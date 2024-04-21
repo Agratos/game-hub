@@ -1,53 +1,61 @@
 /* MainPage CSS */
 
-.mainpage-area{
-    color: white;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 100%;
+.mainpage-area {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 100%;
 }
 
-.main-page-dropdown-area{
-    display: flex;
-    gap: 0.4rem;
+.main-page-dropdown-area {
+  display: flex;
+  gap: 0.4rem;
 }
-
 
 /* column-width가 중요 */
-.mainpage-card-contents-area{
-    column-width:300px;
-    column-gap: 15px;
+.mainpage-card-contents-area {
+  column-width: 300px;
+  column-gap: 15px;
 }
 
-.mainpage-card-contents-area figure{
-    position: relative;
-    border-radius: 20px;
-    display: inline-block;
-    margin:0;
-    margin-bottom: 15px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);;
+.mainpage-card-contents-area figure {
+  position: relative;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+  min-height: 10rem;
 }
 
-.mainpage-card-contents-area figure img{
-    width:100%;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-
+.mainpage-card-contents-area figure img {
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
-
-
-.mainpage-card-contents-area figure figcaption{
-    padding: 0px 10px 10px 10px;
+.mainpage-card-contents-area figure figcaption {
+  padding: 0px 10px 10px 10px;
 }
-
 
 @media (max-width: 992px) {
-    .mainpage-area{
-        align-items: center;
-    }
-    .mainpage-card-contents-area {
-        column-width: 350px;
-    }
+  .mainpage-area {
+    align-items: center;
+  }
+  .mainpage-card-contents-area {
+    column-width: 350px;
+  }
+}
+/* 추가코드 */
+.mainpage-card-contents-box {
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+}
+.mainpage-card-contents-area {
+  column-width: 300px;
+  column-gap: 15px;
+  /* background-color: rosybrown; */
 }
