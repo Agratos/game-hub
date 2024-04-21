@@ -29,7 +29,7 @@ const Header = () => {
   // search form submit 실행함수
   const searchFormSubmit = (e) => {
     e.preventDefault();
-    navigate('/search');
+    navigate(`/search?query=${searchValue}`);
     dispatch(searchActions.search(''));
   };
   // 게임리스트 데이터
