@@ -18,7 +18,7 @@
   align-items: center;
 }
 .header-logo-link img {
-  height: 25px;
+  width: 150px;
 }
 .header-search-box {
   display: flex;
@@ -126,6 +126,9 @@ a {
   .header-container {
     padding: 0 10px;
     gap: 20px;
+  }
+  .header-logo-link img {
+    width: 100px;
   }
 }
 .m-sign-box {
