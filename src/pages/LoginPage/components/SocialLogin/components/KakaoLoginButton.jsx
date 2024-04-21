@@ -14,7 +14,7 @@ const KakaoLoginButton = () => {
   const rest_api_key = process.env.REACT_APP_KAKAO_API;
   const redirect_uri = process.env.REACT_APP_REDIRECT_URI;
   const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${rest_api_key}&redirect_uri=${redirect_uri}&response_type=code`;
-  console.log('redirect_uri: ', redirect_uri);
+
   const { data: kakaoUserInfo, isSuccess: kakaoSuccess } =
     useKakaoUserInfoQuery({
       token: useKakaoTokenQuery({ authKey: kakaoAuthKey, redirect_uri }).data,
