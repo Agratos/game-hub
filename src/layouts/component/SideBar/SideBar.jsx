@@ -29,7 +29,7 @@ const SideBar = () => {
     { name: 'All Games', link: '/' },
     { name: 'Browse', link: '/' },
     { name: 'Platforms', link: '/' },
-    { name: 'Genres', link: '/' },
+    { name: 'Genres', link: '/genres' },
   ];
   console.log(sideBarList);
   return (
