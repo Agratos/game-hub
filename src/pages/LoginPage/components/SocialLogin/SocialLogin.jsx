@@ -1,8 +1,8 @@
 import React from 'react';
 import { Col, Container } from 'react-bootstrap';
 
-import KakaoLogin from './components/KakaoLogin';
-import GoogleLogin from './components/GoogleLogin';
+import KakaoLoginButton from './components/KakaoLoginButton';
+import GoogleLoginButton from './components/GoogleLoginButton';
 
 import './SocialLogin.style.css';
 
@@ -13,10 +13,10 @@ const SocialLogin = () => {
         You can use social accounts to log in
       </p>
       <Col className='login-page-default-width'>
-        <KakaoLogin />
+        <KakaoLoginButton />
       </Col>
       <Col className='login-page-default-width'>
-        <GoogleLogin />
+        <GoogleLoginButton />
       </Col>
     </Container>
   );

@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 import { authenicateActions } from '../../../../../store/slice/authenicateSlice';
-import { useKakaoTokenQuery } from '../../../../../hooks/apis/login/kakao/useKakaoToken';
-import { useKakaoUserInfoQuery } from '../../../../../hooks/apis/login/kakao/useKakaoUserInfo';
+import { useKakaoTokenQuery } from '../../../../../hooks/apis/login/useKakaoToken';
+import { useKakaoUserInfoQuery } from '../../../../../hooks/apis/login/useKakaoUserInfo';
 
-const KakaoLogin = () => {
+const KakaoLoginButton = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [kakaoAuthKey, setKakaoAuthKey] = useState('');
@@ -44,4 +44,4 @@ const KakaoLogin = () => {
   );
 };
 
-export default KakaoLogin;
+export default KakaoLoginButton;

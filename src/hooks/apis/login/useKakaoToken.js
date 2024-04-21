@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import api from '../../../../utils/api';
+import api from '../../../utils/api';
 
 export const useKakaoTokenQuery = ({ authKey, redirect_uri }) => {
   const getKakaoToken = () => {
@@ -21,7 +21,7 @@ export const useKakaoTokenQuery = ({ authKey, redirect_uri }) => {
   };
 
   return useQuery({
-    queryKey: ['kakao-token'],
+    queryKey: ['kakao-token', authKey, redirect_uri],
     queryFn: () => getKakaoToken(),
     select: (res) => res.data.access_token,
     retry: false,

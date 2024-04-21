@@ -1,8 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import api from '../../../../utils/api';
+import api from '../../../utils/api';
 
 export const useKakaoUserInfoQuery = ({ token }) => {
-  console.log(`token: `, token);
   const getKakaoUserInfo = () => {
     return api.get(`https://kapi.kakao.com/v2/user/me`, {
       headers: {
@@ -13,7 +12,7 @@ export const useKakaoUserInfoQuery = ({ token }) => {
   };
 
   return useQuery({
-    queryKey: ['kakao-info'],
+    queryKey: ['kakao-info', token],
     queryFn: () => getKakaoUserInfo(),
     select: (res) => res.data,
 
