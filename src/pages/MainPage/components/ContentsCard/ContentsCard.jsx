@@ -82,7 +82,7 @@ const ContentsCard = ({ item }) => {
         />
       )}
       <div className='platform-box'>
-        {item?.parent_platforms.map((el, index) => (
+        {item?.parent_platforms?.map((el, index) => (
           <div key={index}>
             {/* {el.platform.slug} */}
             <img src={findIconUrl(el.platform.id)} alt='platform img' />
@@ -101,7 +101,7 @@ const ContentsCard = ({ item }) => {
           <div className='mainpage-card-text-box'>
             Genres:
             <div className='mainpage-card-text-genres-box'>
-              {item?.genres.map((el, index) => (
+              {item?.genres?.map((el, index) => (
                 <span key={index}>
                   {index !== item?.genres.length - 1 ? `${el.name},` : el.name}
                 </span>
