@@ -43,6 +43,11 @@
   color: #f99f3d;
   font-weight: bold;
 }
+.fv-wrapper {
+  width: 798px;
+  margin: auto;
+  border: 2px solid hsla(0, 0%, 100%, 0.1);
+}
 
 @media (max-width: 992px) {
   .topGamePageWrap h2 {
@@ -55,5 +60,12 @@
   }
   .topGamePageWrap .swiper {
     max-width: 480px;
+  }
+  .fv-wrapper {
+    width: 100%;
+    margin: auto;
+    border: 2px solid hsla(0, 0%, 100%, 0.1);
+    /* display: none; */
+    width: fit-content;
   }
 }
