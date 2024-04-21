@@ -44,7 +44,6 @@ const ContentsCard = ({item}) => {
 
   const findIconUrl = (id) => {
     let result = PLATFORMS.filter((obj) => obj.id === Number(id));
-    console.log(result)
     if(result[0].iconUrl) {
       return result[0].iconUrl;
     } else {
