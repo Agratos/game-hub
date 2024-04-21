@@ -22,7 +22,7 @@ const SideBar = () => {
   ];
   console.log(sideBarList);
   return (
-    <div className='slidebar-container'>
+    <div className='sidebar-container'>
       <ul className='sidebar-signs'>
         <Signs />
       </ul>
@@ -32,7 +32,7 @@ const SideBar = () => {
       >
         <IoCloseCircleSharp className='sidebar-m-menu-close-ic' />
       </button>
-      <ul className='slidebar-list'>
+      <ul className='sidebar-list'>
         <li>
           <button
             className='side-topgame-link-item'
@@ -42,7 +42,7 @@ const SideBar = () => {
           </button>
         </li>
         {sideBarList.map((item, index) => (
-          <li className='slidebar-list-item' key={index}>
+          <li className='sidebar-list-item' key={index}>
             {item}
           </li>
         ))}
