@@ -35,8 +35,6 @@ const SearchPage = () => {
     console.log(error);
   }
 
-  console.log(`data`, data);
-
   useEffect(() => {
     // data 가 array인지 확인해야 스프레드 문법 사용 가능.
     if (Array.isArray(data) && isSuccess) {
