@@ -16,7 +16,7 @@ const Signs = () => {
         <>
           <li className='sign-item'>
             <button
-              className='sign-logout-bt'
+              className='sign-logout-bt header-sign-bt'
               onClick={() => dispatch(authenicateActions.logout())}
             >
               Sign out
@@ -40,7 +40,7 @@ const Signs = () => {
       ) : (
         <li className='sign-item'>
           <Link to='/login'>
-            <span className='header-sign-span'>Sign in</span>
+            <button className='header-sign-bt'>Sign in</button>
           </Link>
         </li>
       )}
