@@ -114,9 +114,7 @@ const DetailPage = () => {
                       className={`platforms__platform_${el.platform.slug}`}
                       key={index}
                       style={{ width: '20px', height: '20px' }}
-                    >
-                      {/* {el.platform.slug} */}
-                    </div>
+                    ></div>
                   ))}
                 </span>
               </div>
@@ -172,7 +170,7 @@ const DetailPage = () => {
                   let percent =
                     detailData?.ratings?.find((rating) => rating.title === e)
                       ?.percent ?? 0;
-                  console.log(percent);
+                  // console.log(detailData?.ratings[index].count);
                   return (
                     <div
                       style={{
@@ -234,14 +232,13 @@ const DetailPage = () => {
             </div>
           </div>
           <div className='detail-section-2'>
-            {trailerData?.length ? (
+            {trailerData ? (
               <h3>
                 <b>Game Trailers</b>
               </h3>
             ) : null}
             <div className='detail-trailers-box'>
               {trailerData.results?.map((e, index) => {
-                console.log('트레일러 각각', e.data.max);
                 return (
                   <div key={index} className='detail-trailer-card'>
                     <video controls poster={e.preview}>
