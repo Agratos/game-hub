@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   userList: [
     {
-      id: 'gamehub@google.com',
+      email: 'gamehub@google.com',
+      name: 'gamehub',
       password: 'gamehub',
     },
   ],
@@ -14,8 +15,8 @@ const userManagementSlice = createSlice({
   initialState,
   reducers: {
     signUp(state, action) {
-      const { id, password } = action.payload;
-      state.userList.push({ id, password });
+      const { email, name, password } = action.payload;
+      state.userList.push({ email, name, password });
     },
   },
 });

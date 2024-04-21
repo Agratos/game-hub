@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AppLayout from './layouts/AppLayoout/Layout.jsx/AppLayout';
 import MainPage from './pages/MainPage/MainPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import SignupPage from './pages/SignupPage/SignupPage';
 import DetailPage from './pages/DetailPage/DetailPage';
 import SearchPage from './pages/SearchPage/SearchPage';
 import TopGamePage from './pages/TopGamePage/TopGamePage';
@@ -20,8 +21,8 @@ const App = () => {
           <Route path='detail/:id' element={<DetailPage />} />
           <Route path='search' element={<SearchPage />} />
           <Route path='top-game' element={<TopGamePage />} />
+          <Route path='/login' element={<LoginPage />} />
         </Route>
-        <Route path='/login' element={<LoginPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes> */}
       <Routes>
@@ -33,6 +34,7 @@ const App = () => {
         </Route>
         <Route element={<HeaderLayout />}>
           <Route path='/login' element={<LoginPage />} />
+          <Route path='/signup' element={<SignupPage />} />
           <Route path='/top-game' element={<TopGamePage />} />
         </Route>
         <Route path='*' element={<NotFoundPage />} />
