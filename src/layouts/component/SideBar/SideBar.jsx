@@ -49,7 +49,7 @@ const SideBar = () => {
             className='side-topgame-link-item'
             onClick={() => navigate('/top-game')}
           >
-            Rate top gamesx
+            Rate top games
           </button>
         </li>
         {sideBarList.map((item, index) => (
