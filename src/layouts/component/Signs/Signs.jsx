@@ -5,10 +5,18 @@ import { useSelector, useDispatch } from 'react-redux';
 // import { authenicateActions } from '../../../../store/slice/authenicateSlice';
 import { authenicateActions } from '../../../store/slice/authenicateSlice';
 import { IoPersonCircleOutline } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 
 const Signs = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id, profileImage, authenticate } = useSelector((state) => state.auth);
+
+  const signOut = () => {
+    dispatch(authenicateActions.logout());
+    navigate('/');
+    alert('로그아웃됨');
+  };
 
   return (
     <>
@@ -17,7 +25,7 @@ const Signs = () => {
           <li className='sign-item'>
             <button
               className='sign-logout-bt header-sign-bt'
-              onClick={() => dispatch(authenicateActions.logout())}
+              onClick={() => signOut()}
             >
               Sign out
             </button>
