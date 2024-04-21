@@ -2,7 +2,7 @@ import './MainPage.style.css';
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useGameListPaginationQuery } from '../../hooks/apis/useGameListPagination';
-import { Button, Col, Container } from 'react-bootstrap';
+import { Col, Container } from 'react-bootstrap';
 import ContentsCard from './components/ContentsCard/ContentsCard';
 import FilterPlatfomrsDropdown from './components/FilterPlatformsDropdown/FilterPlatfomrsDropdown';
 import OrderByDropdown from './components/OrderByDropdown/OrderByDropdown';
@@ -35,16 +35,25 @@ const MainPage = () => {
     useGameListPaginationQuery({
       page: page,
       ordering: query.get('ordering') ? query.get('ordering') : ORDER_ARR[0],
+      platforms: query.get('parent_platforms')
+        ? query.get('parent_platforms')
+        : null,
     });
   // isSuccess && console.log('여기는 메인 페이지 DATA : ',page,data);
-
-  if (isError) {
-    console.log(error);
-  }
 
   const handlePagination = () => {
     setPage(page + 1);
   };
+
+  if (isError) {
+    console.log(error);
+    <button
+      className='mb-5 mainpage-reload-btn'
+      onClick={() => handlePagination()}
+    >
+      Load more
+    </button>;
+  }
 
   useEffect(() => {
     // data 가 array인지 확인해야 스프레드 문법 사용 가능.
@@ -122,29 +131,31 @@ const MainPage = () => {
       </div>
       <div className='main-page-dropdown-area'>
         <OrderByDropdown ORDER_ARR={ORDER_ARR} />
-        <FilterPlatfomrsDropdown />
+        <FilterPlatfomrsDropdown ORDER_ARR={ORDER_ARR} />
       </div>
       <div className='mainpage-card-contents-area mb-3 '>
-        {isDataList.length !== 0 &&
+        {isDataList?.length !== 0 &&
           isDataList?.map((item, index) => (
             <Col className='mainpage-card-contents-box' key={index}>
               <ContentsCard item={item} />
             </Col>
           ))}
       </div>
-      {isLoading ? (
-        <LoadingSpinner />
-      ) : (
-        isViewBtn && (
-          <Button
-            ref={buttonRef}
-            className='mb-5'
-            onClick={() => handlePagination()}
-          >
-            Add List
-          </Button>
-        )
-      )}
+      <div className='d-flex justify-content-center' style={{ width: '100%' }}>
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          isViewBtn && (
+            <button
+              ref={buttonRef}
+              className='mb-5 mainpage-reload-btn'
+              onClick={() => handlePagination()}
+            >
+              Load more
+            </button>
+          )
+        )}
+      </div>
     </Container>
   );
 };

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 
-import LoginForm from './components/LoginForm/LoginForm';
-import SocialLogin from './components/SocialLogin/SocialLogin';
+import SignupForm from './components/SignupForm/SignupForm';
+import SocialLogin from '../LoginPage/components/SocialLogin/SocialLogin';
 
 import { useGameImageQuery } from '../../hooks/apis/useGameImage';
 
-import './LoginPage.style.css';
+import './SignupPage.style.css';
 
-const LoginPage = () => {
-  const { data } = useGameImageQuery({ id: 5679 });
+const SignupPage = () => {
+  const { data } = useGameImageQuery({ id: 500 });
 
   return (
     <Container className='login-page text-white'>
@@ -19,7 +19,7 @@ const LoginPage = () => {
       />
       <Row className='login-page-row'>
         <Col className='z-2 my-auto' lg={6}>
-          <LoginForm />
+          <SignupForm />
         </Col>
         <Col className='z-2 my-auto' lg={6}>
           <SocialLogin />
@@ -29,4 +29,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignupPage;

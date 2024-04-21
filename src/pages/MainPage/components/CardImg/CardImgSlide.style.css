@@ -1,0 +1,9 @@
+.carousel-indicators{
+    margin: 0;
+    margin-bottom: 0.2rem;
+    width: 100%;
+}
+
+.carousel-indicators button{
+    width: 50% !important;
+}

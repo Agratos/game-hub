@@ -1,6 +1,6 @@
 .login-page {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,7 +12,7 @@
 }
 
 .login-page-row {
-  height: 600px;
+  height: calc(100vh - 55px);
 }
 
 .login-page-background {
