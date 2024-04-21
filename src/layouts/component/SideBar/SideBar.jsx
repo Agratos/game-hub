@@ -6,19 +6,30 @@ import Signs from '../Signs/Signs';
 import { IoCloseCircleSharp } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import { hamburgerActions } from '../../../store/slice/hamburgerMenuOpen';
+import { Link } from 'react-router-dom';
 
 const SideBar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  // const sideBarList = [
+  //   'Home',
+  //   'Reviews',
+  //   'New Releases',
+  //   'top',
+  //   'All Games',
+  //   'Browse',
+  //   'Platforms',
+  //   'Genres',
+  // ];
   const sideBarList = [
-    'Home',
-    'Reviews',
-    'New Releases',
-    'top',
-    'All Games',
-    'Browse',
-    'Platforms',
-    'Genres',
+    { name: 'Home', link: '/' },
+    { name: 'Reviews', link: '/' },
+    { name: 'New Releases', link: '/' },
+    { name: 'top', link: '/' },
+    { name: 'All Games', link: '/' },
+    { name: 'Browse', link: '/' },
+    { name: 'Platforms', link: '/' },
+    { name: 'Genres', link: '/' },
   ];
   console.log(sideBarList);
   return (
@@ -43,7 +54,7 @@ const SideBar = () => {
         </li>
         {sideBarList.map((item, index) => (
           <li className='sidebar-list-item' key={index}>
-            {item}
+            <Link to={item.link}>{item.name}</Link>
           </li>
         ))}
       </ul>
