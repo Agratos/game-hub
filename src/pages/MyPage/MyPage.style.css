@@ -51,6 +51,7 @@
   color: #fff;
   background-color: #000;
   border-radius: 36px;
+  margin-bottom: 100px;
 }
 .mypage-overview h2 {
   font-size: 32px;
@@ -100,4 +101,8 @@
 .mypage-headline {
   font-size: 32px;
   font-weight: normal;
+}
+
+.mypage-fv-games-list {
+  width: 100%;
 }

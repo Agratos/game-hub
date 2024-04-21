@@ -16,10 +16,7 @@ const MyPage = () => {
         </section>
         <section className='mypage-overview'>
           <MyPageGamePlatforms />
-
-          {/* 데이터 props로 보내긔 */}
-          <MyPageMyGames headline='Favorites games' />
-          <MyPageMyGames headline='Liked games' />
+          <MyPageMyGames />
         </section>
       </div>
     </div>
